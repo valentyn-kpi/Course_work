@@ -1,0 +1,19 @@
+# ninja log v5
+2	99	6995335595864839	CMakeFiles/Course_work.dir/main.c.obj	c04675278af362b4
+2	85	6995340653749770	CMakeFiles/Course_work.dir/algorithms/common_array.c.obj	1b30c4add759fef6
+8	146	6983690906023111	CMakeFiles/Course_work.dir/time_measurement/time_measurement.c.obj	c667dbe141ff92b0
+2	79	6995347029692599	CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj	c16c28d2e685d2e9
+79	188	6995347030744395	Course_work.exe	e34439147c61bb1d
+1	139	6995260428721451	build.ninja	42167532216c65fb
+8	110	6995335595971547	CMakeFiles/Course_work.dir/user_interface/menu.c.obj	80d48b285df29910
+29	133	6995335596206994	CMakeFiles/Course_work.dir/user_interface/spreadsheet.c.obj	aa84f87e07908374
+2	70	6995336761708077	CMakeFiles/Course_work.dir/algorithms/select_6_sorting.c.obj	718d86e8d8be7d09
+15	128	6995335596161926	CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj	1b12cb26bb58ae0a
+16	91	6995346200682246	CMakeFiles/Course_work.dir/algorithms/hybrid_select_1_exchange.c.obj	2955fc768e7144ae
+9	85	6995346200610647	CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj	54ecc574888fe559
+2	97	6995348268359383	CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj	1b12cb26bb58ae0a
+2	112	6995348424595350	Course_work.exe	e34439147c61bb1d
+3	89	6995365205428862	CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj	1b12cb26bb58ae0a
+89	206	6995365206549469	Course_work.exe	e34439147c61bb1d
+2	78	6995367104906650	CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj	1b12cb26bb58ae0a
+78	185	6995367105923329	Course_work.exe	e34439147c61bb1d

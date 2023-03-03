@@ -1,0 +1,22 @@
+# ninja log v5
+17	142	6995259539341297	CMakeFiles/Course_work.dir/user_interface/menu.c.obj	4379fec5f1b8acbc
+31	126	6995259539201070	CMakeFiles/Course_work.dir/algorithms/select_6_sorting.c.obj	da06bda3eddd0c96
+126	203	6995259539979427	CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj	842b805d3a2cadcb
+38	222	6995259540167047	CMakeFiles/Course_work.dir/algorithms/common_array.c.obj	2840f6df01a45961
+17	228	6983749019176536	CMakeFiles/Course_work.dir/time_measurement/time_measurement.c.obj	f4037886d729878c
+24	134	6995259539276236	CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj	2bf1dd72298c15a8
+3	101	6995259538955147	CMakeFiles/Course_work.dir/main.c.obj	94ca19e2d42d8681
+222	334	6995259541226356	Course_work.exe	982ed51010063bea
+10	175	6995259539695110	CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj	f31a5a9d34af36a5
+102	205	6995259539999445	CMakeFiles/Course_work.dir/user_interface/spreadsheet.c.obj	68974312cc9c2f4d
+135	206	6995259540009443	CMakeFiles/Course_work.dir/algorithms/hybrid_select_1_exchange.c.obj	cf648fd7435641ee
+4	111	6995453346839644	CMakeFiles/Course_work.dir/main.c.obj	94ca19e2d42d8681
+27	132	6995453347050105	CMakeFiles/Course_work.dir/algorithms/select_6_sorting.c.obj	da06bda3eddd0c96
+13	140	6995453347125284	CMakeFiles/Course_work.dir/user_interface/menu.c.obj	4379fec5f1b8acbc
+33	172	6995453347432128	CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj	2bf1dd72298c15a8
+20	193	6995453347658736	CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj	f31a5a9d34af36a5
+140	229	6995453348030519	CMakeFiles/Course_work.dir/algorithms/hybrid_select_1_exchange.c.obj	cf648fd7435641ee
+111	233	6995453348060524	CMakeFiles/Course_work.dir/user_interface/spreadsheet.c.obj	68974312cc9c2f4d
+132	237	6995453348115741	CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj	842b805d3a2cadcb
+41	242	6995453348165761	CMakeFiles/Course_work.dir/algorithms/common_array.c.obj	2840f6df01a45961
+242	358	6995453349269750	Course_work.exe	982ed51010063bea
