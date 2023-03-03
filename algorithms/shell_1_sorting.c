@@ -47,7 +47,6 @@ clock_t SortingShell_1_vector() {
     else t = (int) log2f((float) n) - 1;
 
     volatile int Stages[t];
-
     Stages[t - 1] = 1;
     for (int i = t - 2; i >= 0; i--)
         Stages[i] = 2 * Stages[i + 1] + 1;

@@ -37,7 +37,7 @@ static float do_measuring_3d(clock_t (*fnc)(), int scase, int p, int m, int n) {
         float result = lowDiffAvgTimeMeasure(fnc);
 
         if (result <= 0) {
-            printf("FATAL: measurements failed!");
+            printf("\nFATAL: measurements failed!\n");
             exit(EFAULT);
         }
 
@@ -65,10 +65,14 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
 
         float result = lowDiffAvgTimeMeasure(fnc);
 
+        if (result <= 0) {
+            printf("\nFATAL: measurements failed!\n");
+            exit(EFAULT);
+        }
+
         VerifySortingVector();
         AddValue(result);
     }
-
 
     DeallocateVector();
 

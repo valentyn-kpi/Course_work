@@ -139,13 +139,14 @@ float ProcessValues() {
         reject_values(REJECTED_NUMBER, 0);           //відкинути перші виміри
         print_values();
 
-        sort_values();                    //перестановка min_max_value максимальних/мінімальних елементів в кінець/початок масиву
+        sort_values();                                           //сортування масиву
         print_values();
 
         reject_values(MIN_MAX_NUMBER, MIN_MAX_NUMBER);//відкинути перші та останні min_max_value елементи
         print_values();
 
         printf("");
+
         return calculate_average();                              //пошук середнього
     } else {
         //not initialised
@@ -166,18 +167,17 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)()) {
     clock_t temp, temp2, diff;
 
     int iterCount = 0;
-    while ((diff = labs((temp = fnc()) - (temp2 = fnc()))) > temp2 * MAX_DIFFERENCE && iterCount < MAX_ITERATIONS) {//поки різниця більша за бажану та кількість ітерацій менше за максимальну
+    while ((diff = labs((temp = fnc()) - (temp2 = fnc()))) > temp2 * MAX_DIFFERENCE && iterCount++ < MAX_ITERATIONS) {//поки різниця більша за бажану та кількість ітерацій менше за максимальну
 #ifndef SUP_DEBUG
         printf("\nCurrent time difference: %ld", diff);
 #endif
-        iterCount++;
     }
 
     if (iterCount >= MAX_ITERATIONS) {//перевіряємо, чи досягнуто максимальну кількість ітерацій
         printf("\n\nFATAL: System unstable!\n"
                "Cannot perform precise measurements!\n"
                "Please try one or more of the following:\n"
-               " - Lock the CPU speed to 30%% of the base speed\n"
+               " - Lock the CPU speed to 50%% of the base speed\n"
                " - Increase the MAX_ITERATIONS value in settings.h\n"
                " - Increase array dimensions\n"
                " - Increase process priority and reduce running processes count"
