@@ -11,6 +11,7 @@
 
 #include "../algorithms/common_array.h"
 #include "../settings.h"
+#include "../user_interface/spreadsheet.h"
 
 #include <stdio.h>
 #include <ctype.h>
@@ -35,6 +36,8 @@ static float do_measuring_3d(clock_t (*fnc)(), int scase, int p, int m, int n) {
 
         if (result <= 0) {
             printf("\nFATAL: measurements failed!\n");
+            fflush(stdin);
+            getchar();
             exit(EFAULT);
         }
 
@@ -62,6 +65,8 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
 
         if (result <= 0) {
             printf("\nFATAL: measurements failed!\n");
+            fflush(stdin);
+            getchar();
             exit(EFAULT);
         }
 
@@ -145,4 +150,135 @@ void Debug_f() {
 
     fflush(stdin);
     getchar();
+}
+
+void SelectSort_debug() {
+    int t, p, m, n;
+
+    printf("Choose array type 0 for 3D, not 0 for vector: ");
+    scanf("%d", &t);
+
+    if (t) {
+        printf("Enter vector length: ");
+        scanf("%d", &n);
+    } else {
+        printf("Enter array dimensions (P M N) separated with space: ");
+        scanf("%d %d %d", &p, &m, &n);
+    }
+
+    // Measure the sorting time for different cases
+    float sorted_time, random_time, back_sorted_time;
+
+    if (t) {
+        // Vector case
+        sorted_time = do_measuring_vector(SortingSelect_6_vector, SORTED_CASE, n);
+        random_time = do_measuring_vector(SortingSelect_6_vector, RANDOM_CASE, n);
+        back_sorted_time = do_measuring_vector(SortingSelect_6_vector, BACK_SORTED_CASE, n);
+    } else {
+        // 3D array case
+        sorted_time = do_measuring_3d(SortingSelect_6, SORTED_CASE, p, m, n);
+        random_time = do_measuring_3d(SortingSelect_6, RANDOM_CASE, p, m, n);
+        back_sorted_time = do_measuring_3d(SortingSelect_6, BACK_SORTED_CASE, p, m, n);
+    }
+
+    // Add the results to the spreadsheet
+    InitSpreadsheet();
+    AddRow("Selection sort #6", sorted_time, random_time, back_sorted_time);
+
+    char c[64];
+
+    if (t)
+        sprintf(c, "Selection sorting results for vector sized %d:", n);
+    else
+        sprintf(c, "Selection sorting results for 3D array sized %d x %d x %d:", p, m, n);
+
+    PintRows(c);
+    DealocSpreadsheet();
+}
+
+
+void ShellSort_debug() {
+    int t, p, m, n;
+
+    printf("Choose array type 0 for 3D, not 0 for vector: ");
+    scanf("%d", &t);
+
+    if (t) {
+        printf("Enter vector length: ");
+        scanf("%d", &n);
+    } else {
+        printf("Enter array dimensions (P M N): ");
+        scanf("%d %d %d", &p, &m, &n);
+    }
+
+    // Measure the sorting time for different cases
+    float sorted_time, random_time, back_sorted_time;
+
+    if (t) {
+        // Vector case
+        sorted_time = do_measuring_vector(SortingShell_1_vector, SORTED_CASE, n);
+        random_time = do_measuring_vector(SortingShell_1_vector, RANDOM_CASE, n);
+        back_sorted_time = do_measuring_vector(SortingShell_1_vector, BACK_SORTED_CASE, n);
+    } else {
+        // 3D array case
+        sorted_time = do_measuring_3d(SortingShell_1_3D, SORTED_CASE, p, m, n);
+        random_time = do_measuring_3d(SortingShell_1_3D, RANDOM_CASE, p, m, n);
+        back_sorted_time = do_measuring_3d(SortingShell_1_3D, BACK_SORTED_CASE, p, m, n);
+    }
+
+    // Add the results to the spreadsheet
+    InitSpreadsheet();
+    AddRow("Shell sorting #1", sorted_time, random_time, back_sorted_time);
+    char c[64];
+
+    if (t)
+        sprintf(c, "Shell sorting results for vector sized %d:", n);
+    else
+        sprintf(c, "Shell sorting results for 3D array sized %d x %d x %d:", p, m, n);
+
+    PintRows(c);
+    DealocSpreadsheet();
+}
+
+void HybridSort_exchange_debug() {
+    int t, p, m, n;
+
+    printf("Choose array type 0 for 3D, not 0 for vector: ");
+    scanf("%d", &t);
+
+    if (t) {
+        printf("Enter vector length: ");
+        scanf("%d", &n);
+    } else {
+        printf("Enter array dimensions (P M N): ");
+        scanf("%d %d %d", &p, &m, &n);
+    }
+
+    // Measure the sorting time for different cases
+    float sorted_time, random_time, back_sorted_time;
+
+    if (t) {
+        // Vector case
+        sorted_time = do_measuring_vector(SortingHybrid_1_exchange_vector, SORTED_CASE, n);
+        random_time = do_measuring_vector(SortingHybrid_1_exchange_vector, RANDOM_CASE, n);
+        back_sorted_time = do_measuring_vector(SortingHybrid_1_exchange_vector, BACK_SORTED_CASE, n);
+    } else {
+        // 3D array case
+        sorted_time = do_measuring_3d(SortingHybrid_1_exchange, SORTED_CASE, p, m, n);
+        random_time = do_measuring_3d(SortingHybrid_1_exchange, RANDOM_CASE, p, m, n);
+        back_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, BACK_SORTED_CASE, p, m, n);
+    }
+
+    // Add the results to the spreadsheet
+    InitSpreadsheet();
+    AddRow("Hybrid sorting (select #1 - exchange)", sorted_time, random_time, back_sorted_time);
+    char c[64];
+
+    if (t)
+        sprintf(c, "Hybrid sorting (select #1 - exchange) results for vector sized %d:", n);
+    else
+        sprintf(c, "Hybrid sorting (select #1 - exchange) results for 3D array sized %d x %d x %d:", p, m, n);
+
+    PintRows(c);
+    DealocSpreadsheet();
 }

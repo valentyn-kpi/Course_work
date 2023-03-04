@@ -7,4 +7,12 @@
 
 void Debug_f();
 
+void SelectSort_debug();
+
+void ShellSort_debug();
+
+void HybridSort_exchange_debug();
+
+
+
 #endif //COURSE_WORK_MEASURE_OPTIONS_H

@@ -4,7 +4,7 @@
 49	930	6996402669379744	CMakeFiles/Course_work.dir/algorithms/common_array.c.obj	cab48a452759daf5
 8	146	6983690906023111	CMakeFiles/Course_work.dir/time_measurement/time_measurement.c.obj	c667dbe141ff92b0
 930	1239	6996402672399354	Course_work.exe	2aef54a8a572a0c9
-3	387	6996416377552018	build.ninja	42167532216c65fb
+3	387	6996688037772867	build.ninja	42167532216c65fb
 22	438	6996402352151602	CMakeFiles/Course_work.dir/user_interface/spreadsheet.c.obj	30771066f1ed83b8
 8	739	6996402667443028	CMakeFiles/Course_work.dir/user_interface/menu.c.obj	3bfe8d91d8c7a648
 356	656	6996402354369092	CMakeFiles/Course_work.dir/algorithms/select_6_sorting.c.obj	de0576dbaa7476a1

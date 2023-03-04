@@ -5,7 +5,11 @@
 int main() {
     InitialiseMenu();//Ініціалізація меню.
 
-    AddOption("Run full debug", Debug_f);
+    AddOption("Run any debug", Debug_f);
+
+    AddOption("Run only select sorting (debug)", SelectSort_debug);
+    AddOption("Run only hybrid sorting (select #1 - exchange)(debug)", HybridSort_exchange_debug);
+    AddOption("Run only shell sorting (debug)", ShellSort_debug);
 
     PrintMenu();    //Вивід меню.
 

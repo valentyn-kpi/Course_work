@@ -6,8 +6,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <errno.h>
-#include <time.h>
 #include "../settings.h"
 
 static int ***array3d_pointer = NULL;
@@ -49,6 +47,8 @@ void AllocateVector(int n) {
     vector_pointer = (int *) malloc(N * sizeof(int));
     if (vector_pointer == NULL) {
         printf("\n\nFATAL: common vector allocation failure (P)!\n\n");
+        fflush(stdin);
+        getchar();
         exit(errno);
     }
 
@@ -77,6 +77,8 @@ void Allocate3DArray(int p, int m, int n) {
     array3d_pointer = (int ***) malloc(P * sizeof(int **));
     if (array3d_pointer == NULL) {
         printf("\n\nFATAL: common 3d array allocation failure (P)!\n\n");
+        fflush(stdin);
+        getchar();
         exit(errno);
     }
 
@@ -86,6 +88,8 @@ void Allocate3DArray(int p, int m, int n) {
 
         if (array3d_pointer[k] == NULL) {
             printf("\n\nFATAL: common 3d array allocation failure (%d : M)!\n\n", k);
+            fflush(stdin);
+            getchar();
             exit(errno);
         }
 
@@ -94,6 +98,8 @@ void Allocate3DArray(int p, int m, int n) {
 
             if (array3d_pointer[k][i] == NULL) {
                 printf("\n\nFATAL: common 3d array allocation failure (%d : %d : N)!\n\n", k, i);
+                fflush(stdin);
+                getchar();
                 exit(errno);
             }
         }
@@ -141,6 +147,8 @@ void Deallocate3DArray() {
 
     } else {
         printf("FATAL: tried to deallocate NULL pointer, possible memory leak!");
+        fflush(stdin);
+        getchar();
         exit(EADDRNOTAVAIL);
     }
 }
@@ -158,6 +166,8 @@ void DeallocateVector() {
 #endif
     } else {
         printf("FATAL: tried to deallocate null pointer, possible memory leak!\n");
+        fflush(stdin);
+        getchar();
         exit(EADDRNOTAVAIL);
     }
 }
@@ -237,6 +247,8 @@ void VerifySorting() {
 #endif //SUP_DEBUG
     } else {
         printf("\n\nFATAL: sorting check failure!");
+        fflush(stdin);
+        getchar();
         exit(ENOMSG);
     }
 
@@ -264,6 +276,8 @@ void VerifySortingVector() {
 #endif //SUP_DEBUG
     } else {
         printf("\n\nFATAL: sorting check failure!");
+        fflush(stdin);
+        getchar();
         exit(ENOMSG);
     }
 

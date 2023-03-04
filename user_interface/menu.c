@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../settings.h"
-#include <conio.h>
 
 typedef struct menu_option {
     const char *name;
@@ -17,17 +16,6 @@ typedef struct menu_option {
 static MenuOption *menu_options = NULL;
 static short next_index = -1;
 
-static void clear_screen() {
-#ifdef SUP_DEBUG
-
-#ifdef WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
-
-#endif
-}
 
 /**
  * Ініціалізація меню.
@@ -86,7 +74,6 @@ void DeallocateMenu() {
  */
 void PrintMenu() {
     if (next_index > -1) {
-        clear_screen();
         printf("Select one option:\n");
         for (int i = 0; i < next_index; ++i) {
             printf("\t- Option %d: %s\n", i + 1, menu_options[i].name);
@@ -124,7 +111,6 @@ void ProcessInput() {
 
         // Handle user input
         if (d > 0 && d <= next_index) {
-            clear_screen();
 
             menu_options[d - 1].onEnter();
 

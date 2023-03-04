@@ -51,55 +51,55 @@ build cmake_object_order_depends_target_Course_work: phony || CMakeFiles/Course_
 
 build CMakeFiles/Course_work.dir/main.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/main.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\main.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir
 
 build CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/time_measurement/time_measurement_processing.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\time_measurement\time_measurement_processing.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir\time_measurement
 
 build CMakeFiles/Course_work.dir/user_interface/menu.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/user_interface/menu.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\user_interface\menu.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir\user_interface
 
 build CMakeFiles/Course_work.dir/user_interface/spreadsheet.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/user_interface/spreadsheet.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\user_interface\spreadsheet.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir\user_interface
 
 build CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/time_measurement/measure_options.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\time_measurement\measure_options.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir\time_measurement
 
 build CMakeFiles/Course_work.dir/algorithms/select_6_sorting.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/algorithms/select_6_sorting.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\algorithms\select_6_sorting.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir\algorithms
 
 build CMakeFiles/Course_work.dir/algorithms/common_array.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/algorithms/common_array.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\algorithms\common_array.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir\algorithms
 
 build CMakeFiles/Course_work.dir/algorithms/hybrid_select_1_exchange.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/algorithms/hybrid_select_1_exchange.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\algorithms\hybrid_select_1_exchange.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir\algorithms
 
 build CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj: C_COMPILER__Course_work_Debug C$:/Users/valen/CLionProjects/Course_work/algorithms/shell_1_sorting.c || cmake_object_order_depends_target_Course_work
   DEP_FILE = CMakeFiles\Course_work.dir\algorithms\shell_1_sorting.c.obj.d
-  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu2x
+  FLAGS = -O3 -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\Course_work.dir
   OBJECT_FILE_DIR = CMakeFiles\Course_work.dir\algorithms
 

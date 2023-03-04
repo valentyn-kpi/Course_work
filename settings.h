@@ -5,6 +5,8 @@
 #ifndef COURSE_WORK_SETTINGS_H
 #define COURSE_WORK_SETTINGS_H
 
+#include <errno.h>
+
 /**
  * Максимально допустима різниця у частинах від
  * одиниці(аналогічно 0.2% по дефолту - один тік на 500) між двома послідовним вимірами.
@@ -63,8 +65,8 @@
 /**
  * Не виводити сміття в консоль.
  */
-//#define SUP_DEBUG
-//#define SUP_ARRAY_PRINT
+#define SUP_DEBUG
+#define SUP_ARRAY_PRINT
 
 
 #define BACK_SORTED_CASE (-1)

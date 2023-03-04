@@ -56,7 +56,7 @@ clock_t SortingShell_1_3D() {
         }
     }
     end_measure = clock();
-
+    free(coll);
     return end_measure - start_measure;
 }
 

@@ -83,6 +83,8 @@ void PintRows(const char* description) {
 
     // Print some blank lines to separate the table from any other output
     printf("\n\n");
+    fflush(stdin);
+    getchar();
 }
 
 /**
