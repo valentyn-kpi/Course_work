@@ -82,6 +82,9 @@ void DeallocateMenu() {
     }
 }
 
+/**
+ * Вивід меню.
+ */
 void PrintMenu() {
     if (next_index > -1) {
         clear_screen();
@@ -89,8 +92,7 @@ void PrintMenu() {
         for (int i = 0; i < next_index; ++i) {
             printf("\t- Option %d: %s\n", i + 1, menu_options[i].name);
         }
-        printf("\t- Option -1: Exit\n");
-        printf("> ");
+        printf("\t- Option -1: Exit\n\n");
     } else {
         //not initialised
 #ifndef SUP_DEBUG
@@ -104,31 +106,37 @@ void PrintMenu() {
  * @param d - номер опції в меню
  */
 void ProcessInput() {
-    if (next_index > -1) {
-        int d;
-        while (1) {
-            char buff[3];
-            gets(buff);
-            d = atoi(buff);
-            if (d > 0 && d <= next_index) {
-                clear_screen();
-
-                menu_options[d - 1].onEnter();
-
-                PrintMenu();
-            } else if (d == -1) {
-                break;
-            } else {
-                printf("Unlisted option. Use -1 to exit.\n\n> ");
-            }
-
-        }
-    } else {
-        //not initialised
-
+    // Check if menu_options[] is initialized
+    if (next_index < 0) {
 #ifndef SUP_DEBUG
-        printf("Not initialized!\n");
+        printf("Error: menu not initialized!\n");
 #endif
+        return;
+    }
+
+    // Loop until the user chooses to fflush(stdin);
+    int d;
+    while (1) {
+        // Get user input
+        printf("> ");
+        if (scanf("%d", &d) != 1) {
+            printf("Error: invalid input!\n");
+            fflush(stdin);
+            continue;
+        }
+
+        // Handle user input
+        if (d > 0 && d <= next_index) {
+            clear_screen();
+
+            menu_options[d - 1].onEnter();
+
+            PrintMenu();
+        } else if (d == -1) {
+            break;
+        } else {
+            printf("Error: invalid option selected!\n");
+        }
     }
 }
 

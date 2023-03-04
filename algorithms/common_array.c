@@ -158,7 +158,7 @@ void DeallocateVector() {
         printf("Array deallocated.\n");
 #endif
     } else {
-        fprintf(stderr, "FATAL: tried to deallocate null pointer, possible memory leak!\n");
+        printf("FATAL: tried to deallocate null pointer, possible memory leak!\n");
         exit(EADDRNOTAVAIL);
     }
 }
@@ -170,20 +170,20 @@ void DeallocateVector() {
 void Fill3DArray(int sort) {
     if (sort == SORTED_CASE) {
         int number = 0;
-        for (int k = 0; k < P; k++)
-            for (int j = 0; j < N; j++)
-                for (int i = 0; i < M; i++)
+        for (register int k = 0; k < P; k++)
+            for (register int j = 0; j < N; j++)
+                for (register int i = 0; i < M; i++)
                     array3d_pointer[k][i][j] = number++;
     } else if (sort == RANDOM_CASE) {
-        for (int k = 0; k < P; k++)
-            for (int j = 0; j < N; j++)
-                for (int i = 0; i < M; i++)
+        for (register int k = 0; k < P; k++)
+            for (register int j = 0; j < N; j++)
+                for (register int i = 0; i < M; i++)
                     array3d_pointer[k][i][j] = rand() % (2 * P * M * N);
     } else if (sort == BACK_SORTED_CASE) {
         int number = P * M * N;
-        for (int k = 0; k < P; k++)
-            for (int j = 0; j < N; j++)
-                for (int i = 0; i < M; i++)
+        for (register int k = 0; k < P; k++)
+            for (register int j = 0; j < N; j++)
+                for (register int i = 0; i < M; i++)
                     array3d_pointer[k][i][j] = number--;
     }
 }
@@ -194,15 +194,15 @@ void Fill3DArray(int sort) {
  */
 void FillVector(int sort) {
     if (sort == SORTED_CASE) {
-        int number = 0;
-        for (int i = 0; i < N; i++)
+        register int number = 0;
+        for (register int i = 0; i < N; i++)
             vector_pointer[i] = number++;
     } else if (sort == RANDOM_CASE) {
-        for (int i = 0; i < N; i++)
+        for (register int i = 0; i < N; i++)
             vector_pointer[i] = rand() % (2 * N);
     } else if (sort == BACK_SORTED_CASE) {
-        int number = N;
-        for (int i = 0; i < N; i++)
+        register int number = N;
+        for (register int i = 0; i < N; i++)
             vector_pointer[i] = number--;
     }
 }
@@ -221,8 +221,8 @@ void VerifySorting() {
 #endif //SUP_DEBUG
 
     bool isSorted = true;
-    for (int p = 0; p < P; ++p) {
-        for (int n = 0; n < N - 1; ++n) {
+    for (register int p = 0; p < P; ++p) {
+        for (register int n = 0; n < N - 1; ++n) {
             if (array3d_pointer[p][0][n] > array3d_pointer[p][0][n + 1]) { //якщо попередній елемент більший за наступний - помилка сортування.
                 isSorted = false;
                 break;
@@ -250,7 +250,7 @@ void VerifySortingVector() {
 #endif //SUP_DEBUG
 
     bool isSorted = true;
-    for (int i = 0; i < N - 1; ++i) {
+    for (register int i = 0; i < N - 1; ++i) {
         if (vector_pointer[i] > vector_pointer[i + 1]) { //if previous element is greater than the next - sorting failure.
             isSorted = false;
             break;

@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.24"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "Release",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Course_work::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Course_work-Release-de19719e2aa4b6916aa5.json",
+					"jsonFile" : "target-Course_work-Debug-2c0201e8781c37251bcf.json",
 					"name" : "Course_work",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/valen/CLionProjects/Course_work/cmake-build-release",
+		"build" : "C:/Users/valen/CLionProjects/Course_work/cmake-build-debug",
 		"source" : "C:/Users/valen/CLionProjects/Course_work"
 	},
 	"version" : 

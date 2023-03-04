@@ -20,7 +20,5 @@ int main() {
     ProcessInput(); //Зациклення меню до виходу з нього. обробка вводу.
 
     DeallocateMenu();
-
-    getchar();
     return 0;
 }

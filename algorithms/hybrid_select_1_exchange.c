@@ -5,6 +5,8 @@
 #include "hybrid_select_1_exchange.h"
 #include "common_array.h"
 
+// turn off optimization for this file
+#pragma GCC optimize ("O0")
 /**
  * Гібридний алгоритм "вибір№1 – обмін"
  * @return Час сортування clock_t.
@@ -44,3 +46,5 @@ clock_t SortingHybrid_1_exchange_vector() {
 
     return end_measure - start_measure;
 }
+// turn optimization back on for the rest of the program
+#pragma GCC optimize ("O3")

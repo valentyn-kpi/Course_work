@@ -5,6 +5,7 @@
 #include "time_measurement_processing.h"
 #include <stdlib.h>
 #include "../settings.h"
+#include "../algorithms/common_array.h"
 #include <stdio.h>
 
 static float *values = NULL; //вказівник на масив значень
@@ -163,15 +164,28 @@ float ProcessValues() {
  * @return Повертає середнє арифметичне перших двох послідовних вимірів, що відрізняються менше ніж на 0.1%, у випадку успіху.
  *         Повертає -1, якщо досягнуто максимальну кількість ітерацій або функція fnc повернула помилку.
  */
-float lowDiffAvgTimeMeasure(clock_t (*fnc)()) {
+float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
     clock_t temp, temp2, diff;
 
     int iterCount = 0;
-    while ((diff = labs((temp = fnc()) - (temp2 = fnc()))) > temp2 * MAX_DIFFERENCE && iterCount++ < MAX_ITERATIONS) {//поки різниця більша за бажану та кількість ітерацій менше за максимальну
+
+    do {//поки різниця більша за бажану та кількість ітерацій менше за максимальну
+        if (array_type == ARRAY_VECTOR) {
+            FillVector(scase);
+            temp = fnc();
+            FillVector(scase);
+            temp2 = fnc();
+        } else {
+            Fill3DArray(scase);
+            temp = fnc();
+            Fill3DArray(scase);
+            temp2 = fnc();
+        }
+        diff = labs(temp - temp2);
 #ifndef SUP_DEBUG
-        printf("\nCurrent time difference: %ld", diff);
+        printf("\nCurrent time difference: %ld\n", diff);
 #endif
-    }
+    } while ((diff > temp2 * MAX_DIFFERENCE) && iterCount++ < MAX_ITERATIONS);
 
     if (iterCount >= MAX_ITERATIONS) {//перевіряємо, чи досягнуто максимальну кількість ітерацій
         printf("\n\nFATAL: System unstable!\n"
@@ -180,8 +194,10 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)()) {
                " - Lock the CPU speed to 50%% of the base speed\n"
                " - Increase the MAX_ITERATIONS value in settings.h\n"
                " - Increase array dimensions\n"
-               " - Increase process priority and reduce running processes count"
+               " - Increase process priority and reduce running processes count\n"
                " - Run program on isolated cpu(core).\n\n");
+        fflush(stdin);
+        getchar();
         exit(-1);
     }
 

@@ -17,6 +17,6 @@ void ClearTimeMeasurement();
 
 float ProcessValues();
 
-float lowDiffAvgTimeMeasure(clock_t (*fnc)());
+float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type);
 
 #endif //COURSE_WORK_TIME_MEASUREMENT_PROCESSING_H

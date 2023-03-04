@@ -6,6 +6,9 @@
 #include "select_6_sorting.h"
 #include "common_array.h"
 
+// turn off optimization for this file
+#pragma GCC optimize ("O0")
+
 /**
  * Алгоритм сортування №6 методу прямого вибору.
  * @return Час сортування clock_t.
@@ -13,7 +16,7 @@
 clock_t SortingSelect_6() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int ***array_3d = (volatile int ***)GetPointer_3DArray();
+    volatile int ***array_3d = GetPointer_3DArray();
     volatile int p = GetDimension('P');
     volatile int m = GetDimension('M');
     volatile int n = GetDimension('N');
@@ -49,3 +52,5 @@ clock_t SortingSelect_6_vector() {
 
     return end_measure - start_measure;
 }
+// turn optimization back on for the rest of the program
+#pragma GCC optimize ("O3")
