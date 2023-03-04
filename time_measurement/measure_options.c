@@ -30,8 +30,6 @@ static float do_measuring_3d(clock_t (*fnc)(), int scase, int p, int m, int n) {
     Allocate3DArray(p, m, n);
 
     for (int i = 0; i < MEASUREMENT_NUMBER; ++i) {
-        Fill3DArray(scase);
-
         printf("Measurements in progress... %d/%d done\r", i, MEASUREMENT_NUMBER);
         float result = lowDiffAvgTimeMeasure(fnc, scase, ARRAY_3D);
 

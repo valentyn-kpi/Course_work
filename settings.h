@@ -64,6 +64,8 @@
  * Не виводити сміття в консоль.
  */
 //#define SUP_DEBUG
+//#define SUP_ARRAY_PRINT
+
 
 #define BACK_SORTED_CASE (-1)
 #define SORTED_CASE 1

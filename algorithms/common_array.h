@@ -13,7 +13,7 @@ int ***GetPointer_3DArray();
 
 void Deallocate3DArray();
 
-void Fill3DArray(int sort);
+void Fill3DArray(int sort, unsigned int seed);
 
 void VerifySorting();
 
@@ -23,7 +23,7 @@ int *GetPointer_Vector();
 
 void DeallocateVector();
 
-void FillVector(int sort);
+void FillVector(int sort, unsigned int seed);
 
 void AllocateVector(int n);
 

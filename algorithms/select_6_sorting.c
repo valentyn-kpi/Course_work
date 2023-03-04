@@ -15,15 +15,32 @@
 clock_t SortingSelect_6() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int ***array_3d = (volatile int ***) GetPointer_3DArray();
-    volatile int p = GetDimension('P');
-    volatile int m = GetDimension('M');
-    volatile int n = GetDimension('N');
+    int ***array_3d = GetPointer_3DArray();
 
-    //початок вимірів
-    start_measure = clock();
+    volatile int P = GetDimension('P');
+    volatile int M = GetDimension('M');
+    volatile int N = GetDimension('N');
+    volatile int p, s, i_min, i, tmp, j;
 
-    end_measure = clock();
+
+    start_measure = clock();//початок вимірів
+    for (p = 0; p < P; ++p) {//для всіх перерізів
+        for (s = 0; s < N - 1; s++) {
+            i_min = s;
+
+            for (i = s + 1; i < N; i++)
+                if (array_3d[p][0][i] < array_3d[p][0][i_min]) i_min = i;
+
+            if (i_min != s) {
+                for (j = 0; j < M; ++j) {//для всіх рядків i_min стовпчика
+                    tmp = array_3d[p][j][i_min];
+                    array_3d[p][j][i_min] = array_3d[p][j][s];
+                    array_3d[p][j][s] = tmp;
+                }
+            }
+        }
+    }
+    end_measure = clock();//кінець вимірів
 
     return end_measure - start_measure;
 }
@@ -31,14 +48,14 @@ clock_t SortingSelect_6() {
 clock_t SortingSelect_6_vector() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int *array_vector = GetPointer_Vector();
-    volatile int n = GetDimension('N');
-    volatile int i_min, tmp, s;
+    int *array_vector = GetPointer_Vector();
+    volatile int N = GetDimension('N');
+    volatile int i_min, tmp, s, i;
 
     start_measure = clock(); //початок вимірів
-    for (s = 0; s < n - 1; s++) {
+    for (s = 0; s < N - 1; s++) {
         i_min = s;
-        for (int i = s + 1; i < n; i++)
+        for (i = s + 1; i < N; i++)
             if (array_vector[i] < array_vector[i_min]) i_min = i;
         if (i_min != s) {
             tmp = array_vector[i_min];

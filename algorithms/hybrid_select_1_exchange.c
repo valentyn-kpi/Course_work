@@ -7,22 +7,36 @@
 
 // turn off optimization for this file
 #pragma GCC optimize ("O0")
+
 /**
  * Гібридний алгоритм "вибір№1 – обмін"
  * @return Час сортування clock_t.
  */
 clock_t SortingHybrid_1_exchange() {
-    // Підготовка сортування, виділення пам'яті
+// Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int ***array_3d = (volatile int ***) GetPointer_3DArray();
-    volatile int p = GetDimension('P');
-    volatile int m = GetDimension('M');
-    volatile int n = GetDimension('N');
+    int ***array_3d = GetPointer_3DArray();
+    volatile int P = GetDimension('P');
+    volatile int M = GetDimension('M');
+    volatile int N = GetDimension('N');
+    volatile int p, Min, s, i, j;
 
-    //
-    start_measure = clock();
-
-    end_measure = clock();
+    start_measure = clock();//початок вимірів
+    for (p = 0; p < P; p++) {
+        for (s = 0; s < N - 1; s++) {
+            Min = array_3d[p][0][s];
+            for (i = s + 1; i < N; i++) {
+                if (array_3d[p][0][i] < Min) {
+                    for (j = 0; j < M; ++j) {//для всіх рядків i-того стовпчика
+                        Min = array_3d[p][j][i];
+                        array_3d[p][j][i] = array_3d[p][j][s];
+                        array_3d[p][j][s] = Min;
+                    }
+                }
+            }
+        }
+    }
+    end_measure = clock();//кінець вимірів
 
     return end_measure - start_measure;
 }
@@ -34,12 +48,20 @@ clock_t SortingHybrid_1_exchange() {
 clock_t SortingHybrid_1_exchange_vector() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int *array_3d = GetPointer_Vector();
-    volatile int n = GetDimension('N');
-
+    volatile int *array_vector = GetPointer_Vector();
+    volatile int N = GetDimension('N');
+    volatile int Min, s, i;
     //
     start_measure = clock();
-
+    for (s = 0; s < N - 1; s++) {
+        Min = array_vector[s];
+        for (i = s + 1; i < N; i++)
+            if (array_vector[i] < Min) {
+                Min = array_vector[i];
+                array_vector[i] = array_vector[s];
+                array_vector[s] = Min;
+            }
+    }
     end_measure = clock();
 
     return end_measure - start_measure;

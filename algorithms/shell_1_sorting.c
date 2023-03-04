@@ -3,6 +3,7 @@
 //
 
 #include <math.h>
+#include <stdlib.h>
 #include "shell_1_sorting.h"
 #include "common_array.h"
 
@@ -18,14 +19,42 @@
 clock_t SortingShell_1_3D() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int ***array_3d = (volatile int ***) GetPointer_3DArray();
-    volatile int p = GetDimension('P');
-    volatile int m = GetDimension('M');
-    volatile int n = GetDimension('N');
+    int ***array_3d = GetPointer_3DArray();
 
-    //
+    volatile int P = GetDimension('P');
+    volatile int M = GetDimension('M');
+    volatile int N = GetDimension('N');
+
+    int *coll = malloc(M * sizeof(int));
+    volatile int t, j, k, p, i, slice, m;
+
     start_measure = clock();
-
+    for (slice = 0; slice < P; ++slice) {
+        if (N < 4) t = 1;
+        else t = (int) log2f((float) N) - 1;
+        volatile int Stages[t];
+        Stages[t - 1] = 1;
+        for (i = t - 2; i >= 0; i--)
+            Stages[i] = 2 * Stages[i + 1] + 1;
+        for (p = 0; p < t; p++) {
+            k = Stages[p];
+            for (i = k; i < N; i++) {
+                for (m = 0; m < M; ++m) {
+                    coll[m] = array_3d[slice][m][i];
+                }
+                j = i;
+                while (j >= k && coll[0] < array_3d[slice][0][j - k]) {
+                    for (m = 0; m < M; ++m) {
+                        array_3d[slice][m][j] = array_3d[slice][m][j - k];
+                    }
+                    j = j - k;
+                }
+                for (m = 0; m < M; ++m) {
+                    array_3d[slice][m][j] = coll[m];
+                }
+            }
+        }
+    }
     end_measure = clock();
 
     return end_measure - start_measure;
@@ -40,22 +69,22 @@ clock_t SortingShell_1_3D() {
 clock_t SortingShell_1_vector() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int *array_vector = GetPointer_Vector();
-    volatile int n = GetDimension('N');
-    volatile int Elem, t, j, k;
+    int *array_vector = GetPointer_Vector();
+    volatile int N = GetDimension('N');
+    volatile int Elem, t, k, p, i, j;
     //
     start_measure = clock();
 
-    if (n < 4) t = 1;
-    else t = (int) log2f((float) n) - 1;
+    if (N < 4) t = 1;
+    else t = (int) log2f((float) N) - 1;
 
     volatile int Stages[t];
     Stages[t - 1] = 1;
-    for (int i = t - 2; i >= 0; i--)
+    for (i = t - 2; i >= 0; i--)
         Stages[i] = 2 * Stages[i + 1] + 1;
-    for (int p = 0; p < t; p++) {
+    for (p = 0; p < t; p++) {
         k = Stages[p];
-        for (int i = k; i < n; i++) {
+        for (i = k; i < N; i++) {
             Elem = array_vector[i];
             j = i;
             while (j >= k && Elem < array_vector[j - k]) {

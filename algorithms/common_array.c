@@ -41,7 +41,6 @@ int GetDimension(char C) {
  * @param n - довжина вектора.
  */
 void AllocateVector(int n) {
-    srand(time(NULL));
 #ifndef SUP_DEBUG
     printf("Starting common vector allocation...\n");
 #endif
@@ -167,7 +166,7 @@ void DeallocateVector() {
  * Заповнення трьохвимірного масиву.
  * @param sort випадок відсортованності (SORTED_CASE, RANDOM_CASE або BACK_SORTED_CASE).
  */
-void Fill3DArray(int sort) {
+void Fill3DArray(int sort, unsigned int seed) {
     if (sort == SORTED_CASE) {
         int number = 0;
         for (register int k = 0; k < P; k++)
@@ -175,6 +174,7 @@ void Fill3DArray(int sort) {
                 for (register int i = 0; i < M; i++)
                     array3d_pointer[k][i][j] = number++;
     } else if (sort == RANDOM_CASE) {
+        srand(seed);
         for (register int k = 0; k < P; k++)
             for (register int j = 0; j < N; j++)
                 for (register int i = 0; i < M; i++)
@@ -192,12 +192,13 @@ void Fill3DArray(int sort) {
  * Заповнення вектора.
  * @param sort - випадок відсортованості.
  */
-void FillVector(int sort) {
+void FillVector(int sort, unsigned int seed) {
     if (sort == SORTED_CASE) {
         register int number = 0;
         for (register int i = 0; i < N; i++)
             vector_pointer[i] = number++;
     } else if (sort == RANDOM_CASE) {
+        srand(seed);
         for (register int i = 0; i < N; i++)
             vector_pointer[i] = rand() % (2 * N);
     } else if (sort == BACK_SORTED_CASE) {

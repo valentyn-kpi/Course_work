@@ -150,6 +150,30 @@ float ProcessValues() {
     }
 }
 
+static void print_3d_array(int ***arr, int P, int M, int N) {
+    int p, m, n;
+    printf("\n\n");
+    for (p = 0; p < P; p++) {
+        printf("Slice %d:\n", p + 1);
+        for (m = 0; m < M; m++) {
+            for (n = 0; n < N; n++) {
+                printf("%5d", arr[p][m][n]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+    printf("\n\n");
+}
+
+static void printArray(int *arr, int size) {
+    printf("\n\n");
+    for (int i = 0; i < size; i++) {
+        printf("%5d", arr[i]);
+    }
+    printf("\n\n");
+}
+
 /**
  * Функція відсікання двох послідовних вимірів з великою різницею.
  * @param fnc - функція, що повертає вимір часу.
@@ -158,25 +182,42 @@ float ProcessValues() {
  */
 float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
     clock_t temp, temp2, diff;
+    unsigned int seed = time(NULL);
+
+#ifndef SUP_ARRAY_PRINT
+    if (array_type == ARRAY_VECTOR) {
+        FillVector(scase, seed);
+        printArray(GetPointer_Vector(), GetDimension('N'));
+        fnc();
+        printArray(GetPointer_Vector(), GetDimension('N'));
+    } else {
+        Fill3DArray(scase, seed);
+        print_3d_array(GetPointer_3DArray(), GetDimension('P'), GetDimension('M'), GetDimension('N'));
+        fnc();
+        print_3d_array(GetPointer_3DArray(), GetDimension('P'), GetDimension('M'), GetDimension('N'));
+    }
+#endif
 
     int iterCount = 0;
-
+    //для генерації однакових псевдовипадкових масивів.
     do {//поки різниця більша за бажану та кількість ітерацій менше за максимальну
         if (array_type == ARRAY_VECTOR) {
-            FillVector(scase);
+            FillVector(scase, seed);
             temp = fnc();
-            FillVector(scase);
+            FillVector(scase, seed);
             temp2 = fnc();
         } else {
-            Fill3DArray(scase);
+            Fill3DArray(scase, seed);
             temp = fnc();
-            Fill3DArray(scase);
+            Fill3DArray(scase, seed);
             temp2 = fnc();
         }
         diff = labs(temp - temp2);
+
 #ifndef SUP_DEBUG
         printf("\nCurrent time difference: %ld\n", diff);
 #endif
+
     } while ((diff > temp2 * MAX_DIFFERENCE) && iterCount++ < MAX_ITERATIONS);
 
     if (iterCount >= MAX_ITERATIONS) {//перевіряємо, чи досягнуто максимальну кількість ітерацій
@@ -193,6 +234,6 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
         exit(-1);
     }
 
-    return (float)((temp + temp2) / 2.0);//ділимо на два
+    return (float) ((temp + temp2) / 2.0);//ділимо на два
 }
 
