@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../settings.h"
-#include <stdio.h>
 #include <conio.h>
 
 typedef struct menu_option {
@@ -106,7 +105,6 @@ void PrintMenu() {
  * @param d - номер опції в меню
  */
 void ProcessInput() {
-    // Check if menu_options[] is initialized
     if (next_index < 0) {
 #ifndef SUP_DEBUG
         printf("Error: menu not initialized!\n");
@@ -114,7 +112,6 @@ void ProcessInput() {
         return;
     }
 
-    // Loop until the user chooses to fflush(stdin);
     int d;
     while (1) {
         // Get user input
@@ -139,5 +136,3 @@ void ProcessInput() {
         }
     }
 }
-
-

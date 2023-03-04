@@ -144,6 +144,7 @@ void Debug_f() {
             result = -1;
     }
     printf("\nMeasurement result: %f \nPress any key to return to main menu.\n", result);
+
     fflush(stdin);
     getchar();
 }

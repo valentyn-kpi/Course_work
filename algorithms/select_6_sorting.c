@@ -34,8 +34,8 @@ clock_t SortingSelect_6_vector() {
     volatile int *array_vector = GetPointer_Vector();
     volatile int n = GetDimension('N');
     volatile int i_min, tmp, s;
-    //початок вимірів
-    start_measure = clock();
+
+    start_measure = clock(); //початок вимірів
     for (s = 0; s < n - 1; s++) {
         i_min = s;
         for (int i = s + 1; i < n; i++)
@@ -46,10 +46,10 @@ clock_t SortingSelect_6_vector() {
             array_vector[s] = tmp;
         }
     }
-    end_measure = clock();
-    //кінець вимірів
+    end_measure = clock(); //кінець вимірів
 
     return end_measure - start_measure;
 }
+
 // turn optimization back on for the rest of the program
 #pragma GCC optimize ("O3")

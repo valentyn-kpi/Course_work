@@ -34,10 +34,8 @@ clock_t SortingHybrid_1_exchange() {
 clock_t SortingHybrid_1_exchange_vector() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    int ***array_3d = GetPointer_3DArray();
-    int p = GetDimension('P');
-    int m = GetDimension('M');
-    int n = GetDimension('N');
+    volatile int *array_3d = GetPointer_Vector();
+    volatile int n = GetDimension('N');
 
     //
     start_measure = clock();
@@ -46,5 +44,6 @@ clock_t SortingHybrid_1_exchange_vector() {
 
     return end_measure - start_measure;
 }
+
 // turn optimization back on for the rest of the program
 #pragma GCC optimize ("O3")

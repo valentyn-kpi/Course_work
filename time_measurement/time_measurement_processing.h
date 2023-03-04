@@ -13,8 +13,6 @@ void AddValue(float value);
 
 void DeallocTimeMeasurement();
 
-void ClearTimeMeasurement();
-
 float ProcessValues();
 
 float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type);

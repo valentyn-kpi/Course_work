@@ -45,14 +45,6 @@ void AddValue(float value) {
 }
 
 /**
- * Повторна ініціалізація для початку повторних вимірів та їх обробки.
- *//*
-void ClearTimeMeasurement() {
-    DeallocTimeMeasurement();
-    InitializeTimeMeasurement();
-}*/
-
-/**
  * Звільнення ресурсів після завершення вимірів та їх обробки.
  */
 void DeallocTimeMeasurement() {
@@ -143,7 +135,7 @@ float ProcessValues() {
         sort_values();                                           //сортування масиву
         print_values();
 
-        reject_values(MIN_MAX_NUMBER, MIN_MAX_NUMBER);//відкинути перші та останні min_max_value елементи
+        reject_values(MIN_MAX_NUMBER, MIN_MAX_NUMBER);//відкинути перші та останні min_max_number елементи
         print_values();
 
         printf("");
@@ -201,6 +193,6 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
         exit(-1);
     }
 
-    return (float) ((temp + temp2) / 2.0);//ділимо на два
+    return (float)((temp + temp2) / 2.0);//ділимо на два
 }
 
