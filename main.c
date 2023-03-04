@@ -2,14 +2,6 @@
 #include "./user_interface/menu.h"
 #include "./time_measurement/measure_options.h"
 
-void foo() {
-    printf("Pizdec called!");
-}
-
-void death() {
-    printf("You died!");
-}
-
 int main() {
     InitialiseMenu();//Ініціалізація меню.
 

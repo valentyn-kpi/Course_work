@@ -14,10 +14,10 @@
 clock_t SortingHybrid_1_exchange() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    int ***array_3d = GetPointer_3DArray();
-    int p = GetDimension('P');
-    int m = GetDimension('M');
-    int n = GetDimension('N');
+    volatile int ***array_3d = (volatile int ***) GetPointer_3DArray();
+    volatile int p = GetDimension('P');
+    volatile int m = GetDimension('M');
+    volatile int n = GetDimension('N');
 
     //
     start_measure = clock();

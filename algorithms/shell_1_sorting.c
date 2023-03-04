@@ -18,7 +18,7 @@
 clock_t SortingShell_1_3D() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int ***array_3d =  GetPointer_3DArray();
+    volatile int ***array_3d = (volatile int ***) GetPointer_3DArray();
     volatile int p = GetDimension('P');
     volatile int m = GetDimension('M');
     volatile int n = GetDimension('N');
@@ -40,7 +40,7 @@ clock_t SortingShell_1_3D() {
 clock_t SortingShell_1_vector() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int *array_vector = (volatile int *) GetPointer_Vector();
+    volatile int *array_vector = GetPointer_Vector();
     volatile int n = GetDimension('N');
     volatile int Elem, t, j, k;
     //

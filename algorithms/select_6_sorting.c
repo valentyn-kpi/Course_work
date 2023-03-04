@@ -2,7 +2,6 @@
 // Created by Valentyn Valentiev on 2/18/2023.
 //
 
-#include <stdio.h>
 #include "select_6_sorting.h"
 #include "common_array.h"
 
@@ -16,7 +15,7 @@
 clock_t SortingSelect_6() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
-    volatile int ***array_3d = GetPointer_3DArray();
+    volatile int ***array_3d = (volatile int ***) GetPointer_3DArray();
     volatile int p = GetDimension('P');
     volatile int m = GetDimension('M');
     volatile int n = GetDimension('N');
