@@ -31,7 +31,7 @@ static float do_measuring_3d(clock_t (*fnc)(), int scase, int p, int m, int n) {
     Allocate3DArray(p, m, n);
 
     for (int i = 0; i < MEASUREMENT_NUMBER; ++i) {
-        printf("Measurements in progress... %d/%d done\r", i, MEASUREMENT_NUMBER);
+        printf("Measurements in progress... %d/%d done\t\r", i, MEASUREMENT_NUMBER);
         fflush(stdout);
         float result = lowDiffAvgTimeMeasure(fnc, scase, ARRAY_3D);
 
@@ -61,7 +61,7 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
 
     for (int i = 0; i < MEASUREMENT_NUMBER; ++i) {
 
-        printf("Measurements in progress... %d/%d done\r", i, MEASUREMENT_NUMBER);
+        printf("Measurements in progress... %d/%d done\t\r", i, MEASUREMENT_NUMBER);
         fflush(stdout);
         float result = lowDiffAvgTimeMeasure(fnc, scase, ARRAY_VECTOR);
 
@@ -283,6 +283,69 @@ void HybridSort_exchange_debug() {
         sprintf(c, "Hybrid sorting (select #1 - exchange) results for vector sized %d:", n);
     else
         sprintf(c, "Hybrid sorting (select #1 - exchange) results for 3D array sized %d x %d x %d:", p, m, n);
+
+    PintRows(c);
+    DealocSpreadsheet();
+}
+
+void All_debug() {
+    int t, p, m, n;
+
+    printf("Choose array type 0 for 3D, not 0 for vector: ");
+    scanf("%d", &t);
+
+    if (t) {
+        printf("Enter vector length: ");
+        scanf("%d", &n);
+    } else {
+        printf("Enter array dimensions (P M N): ");
+        scanf("%d %d %d", &p, &m, &n);
+    }
+    // Measure the sorting time for different cases
+    float select_sorted_time, select_random_time, select_back_sorted_time;
+    float shell_sorted_time, shell_random_time, shell_back_sorted_time;
+    float hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time;
+
+    if (t) {
+        // Vector case
+        select_sorted_time = do_measuring_vector(SortingSelect_6_vector, SORTED_CASE, n);
+        select_random_time = do_measuring_vector(SortingSelect_6_vector, RANDOM_CASE, n);
+        select_back_sorted_time = do_measuring_vector(SortingSelect_6_vector, BACK_SORTED_CASE, n);
+
+        shell_sorted_time = do_measuring_vector(SortingShell_1_vector, SORTED_CASE, n);
+        shell_random_time = do_measuring_vector(SortingShell_1_vector, RANDOM_CASE, n);
+        shell_back_sorted_time = do_measuring_vector(SortingShell_1_vector, BACK_SORTED_CASE, n);
+
+        hybrid_sorted_time = do_measuring_vector(SortingHybrid_1_exchange_vector, SORTED_CASE, n);
+        hybrid_random_time = do_measuring_vector(SortingHybrid_1_exchange_vector, RANDOM_CASE, n);
+        hybrid_back_sorted_time = do_measuring_vector(SortingHybrid_1_exchange_vector, BACK_SORTED_CASE, n);
+    } else {
+        // 3D array case
+        select_sorted_time = do_measuring_3d(SortingSelect_6, SORTED_CASE, p, m, n);
+        select_random_time = do_measuring_3d(SortingSelect_6, RANDOM_CASE, p, m, n);
+        select_back_sorted_time = do_measuring_3d(SortingSelect_6, BACK_SORTED_CASE, p, m, n);
+
+        shell_sorted_time = do_measuring_3d(SortingShell_1_3D, SORTED_CASE, p, m, n);
+        shell_random_time = do_measuring_3d(SortingShell_1_3D, RANDOM_CASE, p, m, n);
+        shell_back_sorted_time = do_measuring_3d(SortingShell_1_3D, BACK_SORTED_CASE, p, m, n);
+
+        hybrid_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, SORTED_CASE, p, m, n);
+        hybrid_random_time = do_measuring_3d(SortingHybrid_1_exchange, RANDOM_CASE, p, m, n);
+        hybrid_back_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, BACK_SORTED_CASE, p, m, n);
+    }
+
+    // Add the results to the spreadsheet
+    InitSpreadsheet();
+
+    AddRow("Selection sort #6", select_sorted_time, select_random_time, select_back_sorted_time);
+    AddRow("Hybrid sorting (select #1 - exchange)", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
+    AddRow("Shell sorting #1", shell_sorted_time, shell_random_time, shell_back_sorted_time);
+    char c[64];
+
+    if (t)
+        sprintf(c, "Full results for vector sized %d:", n);
+    else
+        sprintf(c, "Full results for 3D array sized %d x %d x %d:", p, m, n);
 
     PintRows(c);
     DealocSpreadsheet();

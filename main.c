@@ -10,6 +10,7 @@ int main() {
     AddOption("Run only select sorting (debug)", SelectSort_debug);
     AddOption("Run only hybrid sorting (select #1 - exchange)(debug)", HybridSort_exchange_debug);
     AddOption("Run only shell sorting (debug)", ShellSort_debug);
+    AddOption("Run all sorting, build full table (debug)", All_debug);
 
     PrintMenu();    //Вивід меню.
 

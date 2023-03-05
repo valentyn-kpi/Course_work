@@ -13,5 +13,6 @@ void ShellSort_debug();
 
 void HybridSort_exchange_debug();
 
+void All_debug();
 
 #endif //COURSE_WORK_MEASURE_OPTIONS_H

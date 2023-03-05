@@ -70,8 +70,7 @@ void PintRows(const char *description) {
     for (int i = 0; i < num_cols; ++i) {
         printf("%-15s", headers[i]);
     }
-    printf("\n");
-
+    printf("\n\n");
     // Print the table body
     for (int i = 0; i < next_index; ++i) {
         printf("%-30s", rows[i].name);
@@ -83,7 +82,6 @@ void PintRows(const char *description) {
 
     // Print some blank lines to separate the table from any other output
     printf("\n\n");
-    fflush(stdout);
     fflush(stdout);
     fflush(stdin);
     getchar();
