@@ -461,8 +461,8 @@ void FirstResearchCase() {
  */
 void SecondResearchCase() {
     const int P = CASE_P; // constant
-    int M_values[8] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000};
-    int N_values[8] = {10000000, 1000000, 100000, 10000, 1000, 100, 10, 1};
+    int M_values[8] = {2, 20, 200, 2000, 20000, 200000, 2000000, 20000000};
+    int N_values[8] = {20000000, 2000000, 200000, 20000, 2000, 200, 20, 2};
 
 // Measure the sorting time for different cases
     float select_sorted_time, select_random_time, select_back_sorted_time;
