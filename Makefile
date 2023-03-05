@@ -1,5 +1,6 @@
 CC = gcc
 CFLAGS = -std=c11 -O3 -lm
+LDFLAGS=-lm
 
 SRCS = main.c \
        time_measurement/time_measurement_processing.c \
