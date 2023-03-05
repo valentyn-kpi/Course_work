@@ -75,13 +75,12 @@ clock_t SortingShell_1_vector() {
     int *array_vector = GetPointer_Vector();
     volatile int N = GetDimension('N');
     volatile int Elem, t, k, p, i, j;
-    //
-    start_measure = clock();
 
     if (N < 4) t = 1;
     else t = (int) log2f((float) N) - 1;
+    int *Stages = malloc(t * sizeof(int));
 
-    volatile int Stages[t];
+    start_measure = clock();
     Stages[t - 1] = 1;
     for (i = t - 2; i >= 0; i--)
         Stages[i] = 2 * Stages[i + 1] + 1;
@@ -98,7 +97,7 @@ clock_t SortingShell_1_vector() {
         }
     }
     end_measure = clock();
-
+    free(Stages);
     return end_measure - start_measure;
 }
 
