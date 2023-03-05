@@ -113,7 +113,7 @@ build CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj: C_COMPILER__C
 
 build Course_work.exe: C_EXECUTABLE_LINKER__Course_work_Debug CMakeFiles/Course_work.dir/main.c.obj CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj CMakeFiles/Course_work.dir/user_interface/menu.c.obj CMakeFiles/Course_work.dir/user_interface/spreadsheet.c.obj CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj CMakeFiles/Course_work.dir/algorithms/select_6_sorting.c.obj CMakeFiles/Course_work.dir/algorithms/common_array.c.obj CMakeFiles/Course_work.dir/algorithms/hybrid_select_1_exchange.c.obj CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj
   FLAGS = -O3 -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Course_work.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
