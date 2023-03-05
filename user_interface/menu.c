@@ -116,7 +116,6 @@ void ProcessInput() {
         if (d > 0 && d <= next_index) {
 
             menu_options[d - 1].onEnter();
-
             PrintMenu();
         } else if (d == -1) {
             break;

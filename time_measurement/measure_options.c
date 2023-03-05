@@ -55,6 +55,13 @@ static float do_measuring_3d(clock_t (*fnc)(), int scase, int p, int m, int n) {
     return processed;
 }
 
+/**
+ * Отримання усереднених вимірів.
+ * @param fnc Функція сортування вектора.
+ * @param scase Випадок початкового заповнення.
+ * @param n Довжина масиву.
+ * @return Повертає оброблене значення вимірів часу.
+ */
 static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
     InitializeTimeMeasurement();
     AllocateVector(n);
@@ -87,7 +94,9 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
     return processed;
 }
 
-
+/**
+ * Повне налагодження всіх алгоритмі.
+ */
 void Debug_f() {
     int p = 0, m = 0, n = 0, t = 0, fill = 0;
     char alg[7];
@@ -154,9 +163,11 @@ void Debug_f() {
 
     fflush(stdout);
     fflush(stdin);
-    getchar();
 }
 
+/**
+ * Налагодження алгоритму сортування вибором.
+ */
 void SelectSort_debug() {
     int t, p, m, n;
 
@@ -199,9 +210,14 @@ void SelectSort_debug() {
 
     PintRows(c);
     DealocSpreadsheet();
+
+    fflush(stdout);
+    fflush(stdin);
 }
 
-
+/**
+ * Налагодження алгоритму сортування Шелла.
+ */
 void ShellSort_debug() {
     int t, p, m, n;
 
@@ -243,8 +259,14 @@ void ShellSort_debug() {
 
     PintRows(c);
     DealocSpreadsheet();
+
+    fflush(stdout);
+    fflush(stdin);
 }
 
+/**
+ * Налагодження алгоритму гібридного алгоритму сортування.
+ */
 void HybridSort_exchange_debug() {
     int t, p, m, n;
 
@@ -276,7 +298,7 @@ void HybridSort_exchange_debug() {
 
     // Add the results to the spreadsheet
     InitSpreadsheet();
-    AddRow("Hybrid sorting (select #1 - exchange)", sorted_time, random_time, back_sorted_time);
+    AddRow("Hybrid sorting", sorted_time, random_time, back_sorted_time);
     char c[64];
 
     if (t)
@@ -286,8 +308,15 @@ void HybridSort_exchange_debug() {
 
     PintRows(c);
     DealocSpreadsheet();
+
+    fflush(stdout);
+    fflush(stdin);
 }
 
+
+/**
+ * Налагодження всіх алгоритмів.
+ */
 void All_debug() {
     int t, p, m, n;
 
@@ -337,9 +366,9 @@ void All_debug() {
     // Add the results to the spreadsheet
     InitSpreadsheet();
 
-    AddRow("Selection sort #6", select_sorted_time, select_random_time, select_back_sorted_time);
-    AddRow("Hybrid sorting (select #1 - exchange)", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
-    AddRow("Shell sorting #1", shell_sorted_time, shell_random_time, shell_back_sorted_time);
+    AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
+    AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
+    AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
     char c[64];
 
     if (t)
@@ -349,4 +378,176 @@ void All_debug() {
 
     PintRows(c);
     DealocSpreadsheet();
+
+    fflush(stdout);
+    fflush(stdin);
+}
+
+/**
+ * Перший випадок дослідження.
+ */
+void FirstResearchCase() {
+    const int P = CASE_P; // constant
+    const int N = FIRST_CASE_N; // constant
+    const int m_list[12] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048};
+
+    // Measure the sorting time for different cases
+    float select_sorted_time, select_random_time, select_back_sorted_time;
+    float shell_sorted_time, shell_random_time, shell_back_sorted_time;
+    float hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time;
+
+    // 3D array case
+    for (int i = 0; i < 12; i++) {
+        int m = m_list[i];
+        select_sorted_time = do_measuring_3d(SortingSelect_6, SORTED_CASE, P, m, N);
+        select_random_time = do_measuring_3d(SortingSelect_6, RANDOM_CASE, P, m, N);
+        select_back_sorted_time = do_measuring_3d(SortingSelect_6, BACK_SORTED_CASE, P, m, N);
+
+        shell_sorted_time = do_measuring_3d(SortingShell_1_3D, SORTED_CASE, P, m, N);
+        shell_random_time = do_measuring_3d(SortingShell_1_3D, RANDOM_CASE, P, m, N);
+        shell_back_sorted_time = do_measuring_3d(SortingShell_1_3D, BACK_SORTED_CASE, P, m, N);
+
+        hybrid_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, SORTED_CASE, P, m, N);
+        hybrid_random_time = do_measuring_3d(SortingHybrid_1_exchange, RANDOM_CASE, P, m, N);
+        hybrid_back_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, BACK_SORTED_CASE, P, m, N);
+
+        // Add the results to the spreadsheet
+        InitSpreadsheet();
+
+        AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
+        AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
+        AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
+
+        char c[64];
+        sprintf(c, "Full results for 3D array sized %d x %d x %d:", P, m, N);
+        PintRows(c);
+
+        fflush(stdout);
+
+        DealocSpreadsheet();
+    }
+
+    // Vector case
+    select_sorted_time = (float) P * do_measuring_vector(SortingSelect_6_vector, SORTED_CASE, N);
+    select_random_time = (float) P * do_measuring_vector(SortingSelect_6_vector, RANDOM_CASE, N);
+    select_back_sorted_time = (float) P * do_measuring_vector(SortingSelect_6_vector, BACK_SORTED_CASE, N);
+
+    shell_sorted_time = (float) P * do_measuring_vector(SortingShell_1_vector, SORTED_CASE, N);
+    shell_random_time = (float) P * do_measuring_vector(SortingShell_1_vector, RANDOM_CASE, N);
+    shell_back_sorted_time = (float) P * do_measuring_vector(SortingShell_1_vector, BACK_SORTED_CASE, N);
+
+    hybrid_sorted_time = (float) P * do_measuring_vector(SortingHybrid_1_exchange_vector, SORTED_CASE, N);
+    hybrid_random_time = (float) P * do_measuring_vector(SortingHybrid_1_exchange_vector, RANDOM_CASE, N);
+    hybrid_back_sorted_time = (float) P * do_measuring_vector(SortingHybrid_1_exchange_vector, BACK_SORTED_CASE, N);
+
+    // Add the results to the spreadsheet
+    InitSpreadsheet();
+
+    AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
+    AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
+    AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
+
+    char c[64];
+    sprintf(c, "Full multiplied by %d results for vector sized %d:", P, N);
+    PintRows(c);
+    DealocSpreadsheet();
+
+    fflush(stdout);
+    fflush(stdin);
+}
+
+/**
+ * Другий випадок дослідження.
+ */
+void SecondResearchCase() {
+    const int P = CASE_P; // constant
+    int M_values[8] = {10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
+    int N_values[8] = {100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10};
+
+// Measure the sorting time for different cases
+    float select_sorted_time, select_random_time, select_back_sorted_time;
+    float shell_sorted_time, shell_random_time, shell_back_sorted_time;
+    float hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time;
+
+    for (int i = 0; i < 8; i++) {
+        int m = M_values[i];
+        int n = N_values[i];
+        select_sorted_time = do_measuring_3d(SortingSelect_6, SORTED_CASE, P, m, n);
+        select_random_time = do_measuring_3d(SortingSelect_6, RANDOM_CASE, P, m, n);
+        select_back_sorted_time = do_measuring_3d(SortingSelect_6, BACK_SORTED_CASE, P, m, n);
+
+        shell_sorted_time = do_measuring_3d(SortingShell_1_3D, SORTED_CASE, P, m, n);
+        shell_random_time = do_measuring_3d(SortingShell_1_3D, RANDOM_CASE, P, m, n);
+        shell_back_sorted_time = do_measuring_3d(SortingShell_1_3D, BACK_SORTED_CASE, P, m, n);
+
+        hybrid_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, SORTED_CASE, P, m, n);
+        hybrid_random_time = do_measuring_3d(SortingHybrid_1_exchange, RANDOM_CASE, P, m, n);
+        hybrid_back_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, BACK_SORTED_CASE, P, m, n);
+
+        // Add the results to the spreadsheet
+        InitSpreadsheet();
+
+        AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
+        AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
+        AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
+
+        char c[64];
+        sprintf(c, "Full results for 3D array sized %d x %d x %d:", P, m, n);
+        PintRows(c);
+
+        fflush(stdout);
+
+        DealocSpreadsheet();
+    }
+}
+
+/**
+ * Третій випадок дослідження.
+ */
+void ThirdResearchCase() {
+    const int M = CASE_M; // constant
+    int P_values[6] = {20, 200, 2000, 20000, 200000, 2000000};
+    int N_values[6] = {2000000, 200000, 20000, 2000, 200, 20};
+
+    // Measure the sorting time for different cases
+    float select_sorted_time, select_random_time, select_back_sorted_time;
+    float shell_sorted_time, shell_random_time, shell_back_sorted_time;
+    float hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time;
+
+    for (int i = 0; i < 6; i++) {
+        int p = P_values[i];
+        int n = N_values[i];
+        select_sorted_time = do_measuring_3d(SortingSelect_6, SORTED_CASE, p, M, n);
+        select_random_time = do_measuring_3d(SortingSelect_6, RANDOM_CASE, p, M, n);
+        select_back_sorted_time = do_measuring_3d(SortingSelect_6, BACK_SORTED_CASE, p, M, n);
+
+        shell_sorted_time = do_measuring_3d(SortingShell_1_3D, SORTED_CASE, p, M, n);
+        shell_random_time = do_measuring_3d(SortingShell_1_3D, RANDOM_CASE, p, M, n);
+        shell_back_sorted_time = do_measuring_3d(SortingShell_1_3D, BACK_SORTED_CASE, p, M, n);
+
+        hybrid_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, SORTED_CASE, p, M, n);
+        hybrid_random_time = do_measuring_3d(SortingHybrid_1_exchange, RANDOM_CASE, p, M, n);
+        hybrid_back_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, BACK_SORTED_CASE, p, M, n);
+
+        // Add the results to the spreadsheet
+        InitSpreadsheet();
+
+        AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
+        AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
+        AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
+
+        char c[64];
+        sprintf(c, "Full results for 3D array sized %d x %d x %d:", p, M, n);
+        PintRows(c);
+
+        fflush(stdout);
+
+        DealocSpreadsheet();
+    }
+}
+
+void AllResearchCases(){
+    FirstResearchCase();
+    SecondResearchCase();
+    ThirdResearchCase();
 }

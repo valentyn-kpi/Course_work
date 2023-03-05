@@ -122,6 +122,10 @@ int ***GetPointer_3DArray() {
     return array3d_pointer;
 }
 
+/**
+ * Отримання вказівника на трьохвимірний масив.
+ * @return Вказівник на вектор.
+ */
 int *GetPointer_Vector() {
     return vector_pointer;
 }
@@ -181,6 +185,7 @@ void DeallocateVector() {
 /**
  * Заповнення трьохвимірного масиву.
  * @param sort випадок відсортованності (SORTED_CASE, RANDOM_CASE або BACK_SORTED_CASE).
+ * @param seed сід для генерації псевдовипадкових елементів масиву.
  */
 void Fill3DArray(int sort, unsigned int seed) {
     if (sort == SORTED_CASE) {
@@ -207,6 +212,7 @@ void Fill3DArray(int sort, unsigned int seed) {
 /**
  * Заповнення вектора.
  * @param sort - випадок відсортованості.
+ * @param seed сід для генерації псевдовипадкових елементів масиву.
  */
 void FillVector(int sort, unsigned int seed) {
     if (sort == SORTED_CASE) {
@@ -262,6 +268,10 @@ void VerifySorting() {
 #endif //VERIFY_SORT
 }
 
+/**
+ * Перевірка на відсортованість вектора.
+ * Так як особливого сенсу у цій функції немає вимкнути її виконання можна у settings.h
+ */
 void VerifySortingVector() {
 #ifdef VERIFY_SORT
 

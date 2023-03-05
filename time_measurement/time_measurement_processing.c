@@ -150,6 +150,13 @@ float ProcessValues() {
     }
 }
 
+/**
+ * Вивід 3Д масиву для налагодження.
+ * @param arr масив.
+ * @param P кількість перерізів
+ * @param M кількість рядків
+ * @param N кількість стовпчиків
+ */
 static void print_3d_array(int ***arr, int P, int M, int N) {
     int p, m, n;
     printf("\n\n");
@@ -166,6 +173,11 @@ static void print_3d_array(int ***arr, int P, int M, int N) {
     printf("\n\n");
 }
 
+/**
+ * Вивід вектора.
+ * @param arr масив.
+ * @param size довжина масиву.
+ */
 static void printArray(int *arr, int size) {
     printf("\n\n");
     for (int i = 0; i < size; i++) {
@@ -229,7 +241,7 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
                " - Increase array dimensions\n"
                " - Increase process priority and reduce running processes count\n"
                " - Run program on isolated cpu(core).\n\n");
-        fflush(stdout);
+
         fflush(stdout);
         fflush(stdin);
         getchar();

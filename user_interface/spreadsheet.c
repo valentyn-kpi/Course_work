@@ -27,6 +27,7 @@ void InitSpreadsheet() {
         //already initialised
 #ifndef SUP_DEBUG
         printf("Tried to re-init!\n");
+        fflush(stdout);
 #endif
     }
 }
@@ -52,6 +53,7 @@ void AddRow(const char *name, float sorted, float random, float back_sorted) {
         //not initialised
 #ifndef SUP_DEBUG
         printf("Not initialized values lost!\n");
+        fflush(stdout);
 #endif
     }
 }
@@ -82,6 +84,7 @@ void PintRows(const char *description) {
 
     // Print some blank lines to separate the table from any other output
     printf("\n\n");
+
     fflush(stdout);
     fflush(stdin);
     getchar();

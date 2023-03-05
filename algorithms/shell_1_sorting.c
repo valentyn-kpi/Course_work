@@ -24,15 +24,15 @@ clock_t SortingShell_1_3D() {
     volatile int P = GetDimension('P');
     volatile int M = GetDimension('M');
     volatile int N = GetDimension('N');
-
-    int *coll = malloc(M * sizeof(int));
     volatile int t, j, k, p, i, slice, m;
+
+    if (N < 4) t = 1;
+    else t = (int) log2f((float) N) - 1;
+    int *Stages = malloc(t * sizeof(int));
+    int *coll = malloc(M * sizeof(int));
 
     start_measure = clock();
     for (slice = 0; slice < P; ++slice) {
-        if (N < 4) t = 1;
-        else t = (int) log2f((float) N) - 1;
-        volatile int Stages[t];
         Stages[t - 1] = 1;
         for (i = t - 2; i >= 0; i--)
             Stages[i] = 2 * Stages[i + 1] + 1;
@@ -56,7 +56,10 @@ clock_t SortingShell_1_3D() {
         }
     }
     end_measure = clock();
+
     free(coll);
+    free(Stages);
+
     return end_measure - start_measure;
 }
 

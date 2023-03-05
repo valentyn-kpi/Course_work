@@ -41,26 +41,20 @@
  */
 #define VERIFY_SORT
 
-#define ARRAY_3D 1
-
-#define ARRAY_VECTOR 0
-
-#define WARM_UP_RUNS 1000000
-
 /**
  * Кількість ключів для першого випадку дослідження.
  */
-#define FIRST_CASE_N 50000
+#define FIRST_CASE_N 500000
 
 /**
  *Кількість перерізів для першого та другого випадку дослідження.
  */
-#define FS_CASE_P 3
+#define CASE_P 3
 
 /**
  *Кількість рядків для третього випадку дослідження.
  */
-#define THIRD_CASE_M 100
+#define CASE_M 100
 
 /**
  * Не виводити сміття в консоль.
@@ -72,5 +66,7 @@
 #define BACK_SORTED_CASE (-1)
 #define SORTED_CASE 1
 #define RANDOM_CASE 0
+#define ARRAY_3D 1
+#define ARRAY_VECTOR 0
 
 #endif //COURSE_WORK_SETTINGS_H

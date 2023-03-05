@@ -15,4 +15,12 @@ void HybridSort_exchange_debug();
 
 void All_debug();
 
+void FirstResearchCase();
+
+void SecondResearchCase();
+
+void ThirdResearchCase();
+
+void AllResearchCases();
+
 #endif //COURSE_WORK_MEASURE_OPTIONS_H

@@ -45,6 +45,10 @@ clock_t SortingSelect_6() {
     return end_measure - start_measure;
 }
 
+/**
+ * Алгоритм сортування №6 методу прямого вибору.
+ * @return Час сортування clock_t.
+ */
 clock_t SortingSelect_6_vector() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
