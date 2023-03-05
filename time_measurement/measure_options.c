@@ -389,7 +389,7 @@ void All_debug() {
 void FirstResearchCase() {
     const int P = CASE_P; // constant
     const int N = FIRST_CASE_N; // constant
-    const int m_list[12] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048};
+    const int m_list[12] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
 
     // Measure the sorting time for different cases
     float select_sorted_time, select_random_time, select_back_sorted_time;
@@ -397,7 +397,7 @@ void FirstResearchCase() {
     float hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time;
 
     // 3D array case
-    for (int i = 0; i < 12; i++) {
+    for (int i = 0; i < 11; i++) {
         int m = m_list[i];
         select_sorted_time = do_measuring_3d(SortingSelect_6, SORTED_CASE, P, m, N);
         select_random_time = do_measuring_3d(SortingSelect_6, RANDOM_CASE, P, m, N);
@@ -461,8 +461,8 @@ void FirstResearchCase() {
  */
 void SecondResearchCase() {
     const int P = CASE_P; // constant
-    int M_values[8] = {2, 20, 200, 2000, 20000, 200000, 2000000, 20000000};
-    int N_values[8] = {20000000, 2000000, 200000, 20000, 2000, 200, 20, 2};
+    int M_values[8] = {4, 40, 400, 4000, 40000, 400000, 4000000, 40000000};
+    int N_values[8] = {40000000, 4000000, 400000, 40000, 4000, 400, 40, 4};
 
 // Measure the sorting time for different cases
     float select_sorted_time, select_random_time, select_back_sorted_time;
@@ -506,8 +506,8 @@ void SecondResearchCase() {
  */
 void ThirdResearchCase() {
     const int M = CASE_M; // constant
-    int P_values[6] = {20, 200, 2000, 20000, 200000, 2000000};
-    int N_values[6] = {2000000, 200000, 20000, 2000, 200, 20};
+    int P_values[6] = {4, 40, 400, 4000, 40000, 400000};
+    int N_values[6] = {400000, 40000, 4000, 400, 40, 4};
 
     // Measure the sorting time for different cases
     float select_sorted_time, select_random_time, select_back_sorted_time;
