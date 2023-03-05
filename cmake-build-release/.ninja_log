@@ -34,3 +34,8 @@
 587	735	6997255754125352	CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj	3999351074466c52
 550	786	6997255754637983	CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj	4f286a6fbb968dd4
 787	1090	6997255757620807	Course_work.exe	b8b4b9ef38d25a8f
+16	187	6997256790197521	CMakeFiles/Course_work.dir/user_interface/menu.c.obj	598824b4e1e09cd6
+4	223	6997256790560199	CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj	272efa5c4dddfb6f
+27	263	6997256790964418	CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj	4f286a6fbb968dd4
+40	296	6997256791298063	CMakeFiles/Course_work.dir/algorithms/common_array.c.obj	364389a6ad2c8f1b
+296	471	6997256792970143	Course_work.exe	b8b4b9ef38d25a8f
