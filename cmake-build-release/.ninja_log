@@ -24,3 +24,13 @@
 254	395	6996813504864367	CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj	3999351074466c52
 52	400	6996813504925711	CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj	4f286a6fbb968dd4
 401	591	6996813506741928	Course_work.exe	b8b4b9ef38d25a8f
+235	547	6997255752103150	CMakeFiles/Course_work.dir/algorithms/select_6_sorting.c.obj	4824c3aa7e207b0d
+121	567	6997255752204032	CMakeFiles/Course_work.dir/user_interface/spreadsheet.c.obj	57f42aab3caf541d
+5	587	6997255752274665	CMakeFiles/Course_work.dir/main.c.obj	fc2350cbda714e5e
+69	604	6997255752526850	CMakeFiles/Course_work.dir/user_interface/menu.c.obj	598824b4e1e09cd6
+58	606	6997255752736832	CMakeFiles/Course_work.dir/time_measurement/time_measurement_processing.c.obj	272efa5c4dddfb6f
+156	649	6997255753250883	CMakeFiles/Course_work.dir/algorithms/common_array.c.obj	364389a6ad2c8f1b
+568	713	6997255753903392	CMakeFiles/Course_work.dir/algorithms/hybrid_select_1_exchange.c.obj	4cba2cd32432c431
+587	735	6997255754125352	CMakeFiles/Course_work.dir/algorithms/shell_1_sorting.c.obj	3999351074466c52
+550	786	6997255754637983	CMakeFiles/Course_work.dir/time_measurement/measure_options.c.obj	4f286a6fbb968dd4
+787	1090	6997255757620807	Course_work.exe	b8b4b9ef38d25a8f

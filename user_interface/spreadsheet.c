@@ -60,8 +60,8 @@ void AddRow(const char *name, float sorted, float random, float back_sorted) {
  * Вивід таблиці
  * @param description опис таблиці
  */
-void PintRows(const char* description) {
-    const char* headers[] = {"Sorted", "Random", "Back-sorted"};
+void PintRows(const char *description) {
+    const char *headers[] = {"Sorted", "Random", "Back-sorted"};
     // Print the table header
     printf("\n%s\n\n", description);
     printf("%-30s", "Algorithm");
@@ -83,6 +83,8 @@ void PintRows(const char* description) {
 
     // Print some blank lines to separate the table from any other output
     printf("\n\n");
+    fflush(stdout);
+    fflush(stdout);
     fflush(stdin);
     getchar();
 }
@@ -99,6 +101,7 @@ void DealocSpreadsheet() {
         //already deallocated
 #ifndef SUP_DEBUG
         printf("Tried to re-dealloc!\n");
+        fflush(stdout);
 #endif
     }
 }

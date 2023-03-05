@@ -32,10 +32,12 @@ static float do_measuring_3d(clock_t (*fnc)(), int scase, int p, int m, int n) {
 
     for (int i = 0; i < MEASUREMENT_NUMBER; ++i) {
         printf("Measurements in progress... %d/%d done\r", i, MEASUREMENT_NUMBER);
+        fflush(stdout);
         float result = lowDiffAvgTimeMeasure(fnc, scase, ARRAY_3D);
 
         if (result <= 0) {
             printf("\nFATAL: measurements failed!\n");
+            fflush(stdout);
             fflush(stdin);
             getchar();
             exit(EFAULT);
@@ -60,11 +62,13 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
     for (int i = 0; i < MEASUREMENT_NUMBER; ++i) {
 
         printf("Measurements in progress... %d/%d done\r", i, MEASUREMENT_NUMBER);
-
+        fflush(stdout);
         float result = lowDiffAvgTimeMeasure(fnc, scase, ARRAY_VECTOR);
 
         if (result <= 0) {
             printf("\nFATAL: measurements failed!\n");
+            fflush(stdout);
+            fflush(stdout);
             fflush(stdin);
             getchar();
             exit(EFAULT);
@@ -148,6 +152,7 @@ void Debug_f() {
     }
     printf("\nMeasurement result: %f \nPress any key to return to main menu.\n", result);
 
+    fflush(stdout);
     fflush(stdin);
     getchar();
 }

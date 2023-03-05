@@ -229,6 +229,8 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
                " - Increase array dimensions\n"
                " - Increase process priority and reduce running processes count\n"
                " - Run program on isolated cpu(core).\n\n");
+        fflush(stdout);
+        fflush(stdout);
         fflush(stdin);
         getchar();
         exit(-1);

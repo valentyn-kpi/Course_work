@@ -101,10 +101,13 @@ void ProcessInput() {
 
     int d;
     while (1) {
-        // Get user input
+        fflush(stdout);
+        fflush(stdin);
+
         printf("> ");
         if (scanf("%d", &d) != 1) {
             printf("Error: invalid input!\n");
+            fflush(stdout);
             fflush(stdin);
             continue;
         }
