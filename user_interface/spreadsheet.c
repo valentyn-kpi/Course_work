@@ -91,6 +91,43 @@ void PintRows(const char *description) {
 }
 
 /**
+ * Вивід таблиці у файл.
+ * @param description опис таблиці
+ * @param filename ім'я файлу.
+ */
+void PrintRowsToFile(const char *description, const char *filename) {
+    const char *headers[] = {"Sorted", "Random", "Back-sorted"};
+    // Open the file in append mode
+    FILE *fp = fopen(filename, "a");
+    if (fp == NULL) {
+        perror("Error opening file");
+        return;
+    }
+
+    // Print the table header to the file
+    fprintf(fp, "\n%s\n\n", description);
+    fprintf(fp, "%-30s", "Algorithm");
+
+    const int num_cols = sizeof(headers) / sizeof(headers[0]);
+    for (int i = 0; i < num_cols; ++i) {
+        fprintf(fp, "%-15s", headers[i]);
+    }
+    fprintf(fp, "\n\n");
+
+    // Print the table body to the file
+    for (int i = 0; i < next_index; ++i) {
+        fprintf(fp, "%-30s", rows[i].name);
+        fprintf(fp, "%-15.3f", rows[i].sorted);
+        fprintf(fp, "%-15.3f", rows[i].random);
+        fprintf(fp, "%-15.3f", rows[i].back_sorted);
+        fprintf(fp, "\n");
+    }
+
+    // Close the file
+    fclose(fp);
+}
+
+/**
  * Звільнення пам'яті зайнятої таблицею.
  */
 void DealocSpreadsheet() {

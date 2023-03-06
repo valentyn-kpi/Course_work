@@ -209,6 +209,7 @@ void SelectSort_debug() {
         sprintf(c, "Selection sorting results for 3D array sized %d x %d x %d:", p, m, n);
 
     PintRows(c);
+    PrintRowsToFile(c, "Spreadsheets.txt");
     DealocSpreadsheet();
 
     fflush(stdout);
@@ -258,6 +259,7 @@ void ShellSort_debug() {
         sprintf(c, "Shell sorting results for 3D array sized %d x %d x %d:", p, m, n);
 
     PintRows(c);
+    PrintRowsToFile(c, "Spreadsheets.txt");
     DealocSpreadsheet();
 
     fflush(stdout);
@@ -307,6 +309,7 @@ void HybridSort_exchange_debug() {
         sprintf(c, "Hybrid sorting (select #1 - exchange) results for 3D array sized %d x %d x %d:", p, m, n);
 
     PintRows(c);
+    PrintRowsToFile(c, "Spreadsheets.txt");
     DealocSpreadsheet();
 
     fflush(stdout);
@@ -377,6 +380,7 @@ void All_debug() {
         sprintf(c, "Full results for 3D array sized %d x %d x %d:", p, m, n);
 
     PintRows(c);
+    PrintRowsToFile(c, "Spreadsheets.txt");
     DealocSpreadsheet();
 
     fflush(stdout);
@@ -421,6 +425,7 @@ void FirstResearchCase() {
         char c[64];
         sprintf(c, "Full results for 3D array sized %d x %d x %d:", P, m, N);
         PintRows(c);
+        PrintRowsToFile(c, "Spreadsheets.txt");
 
         fflush(stdout);
 
@@ -450,6 +455,7 @@ void FirstResearchCase() {
     char c[64];
     sprintf(c, "Full multiplied by %d results for vector sized %d:", P, N);
     PintRows(c);
+    PrintRowsToFile(c, "Spreadsheets.txt");
     DealocSpreadsheet();
 
     fflush(stdout);
@@ -494,6 +500,7 @@ void SecondResearchCase() {
         char c[64];
         sprintf(c, "Full results for 3D array sized %d x %d x %d:", P, m, n);
         PintRows(c);
+        PrintRowsToFile(c, "Spreadsheets.txt");
 
         fflush(stdout);
 
@@ -539,6 +546,7 @@ void ThirdResearchCase() {
         char c[64];
         sprintf(c, "Full results for 3D array sized %d x %d x %d:", p, M, n);
         PintRows(c);
+        PrintRowsToFile(c, "Spreadsheets.txt");
 
         fflush(stdout);
 
@@ -546,7 +554,7 @@ void ThirdResearchCase() {
     }
 }
 
-void AllResearchCases(){
+void AllResearchCases() {
     FirstResearchCase();
     SecondResearchCase();
     ThirdResearchCase();

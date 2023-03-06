@@ -13,4 +13,6 @@ void PintRows(const char *description);
 
 void DealocSpreadsheet();
 
+void PrintRowsToFile(const char *description, const char *filename);
+
 #endif //COURSE_WORK_SPREADSHEET_H
