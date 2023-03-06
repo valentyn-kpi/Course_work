@@ -393,7 +393,7 @@ void All_debug() {
 void FirstResearchCase() {
     const int P = CASE_P; // constant
     const int N = FIRST_CASE_N; // constant
-    const int m_list[12] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
+    const int m_list[11] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
 
     // Measure the sorting time for different cases
     float select_sorted_time, select_random_time, select_back_sorted_time;

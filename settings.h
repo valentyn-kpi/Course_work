@@ -58,7 +58,7 @@
 /**
  * Не виводити сміття в консоль.
  */
-#define SUP_DEBUG
+//#define SUP_DEBUG
 #define SUP_ARRAY_PRINT
 
 
