@@ -21,10 +21,10 @@ clock_t SortingShell_1_3D() {
     clock_t start_measure, end_measure;
     int ***array_3d = GetPointer_3DArray();
 
-    volatile int P = GetDimension('P');
-    volatile int M = GetDimension('M');
-    volatile int N = GetDimension('N');
-    volatile int t, j, k, p, i, slice, m;
+    int P = GetDimension('P');
+    int M = GetDimension('M');
+    int N = GetDimension('N');
+    int t, j, k, p, i, slice, m;
 
     if (N < 4) t = 1;
     else t = (int) log2f((float) N) - 1;
@@ -73,8 +73,8 @@ clock_t SortingShell_1_vector() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
     int *array_vector = GetPointer_Vector();
-    volatile int N = GetDimension('N');
-    volatile int Elem, t, k, p, i, j;
+    int N = GetDimension('N');
+    int Elem, t, k, p, i, j;
 
     if (N < 4) t = 1;
     else t = (int) log2f((float) N) - 1;

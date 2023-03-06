@@ -17,10 +17,10 @@ clock_t SortingSelect_6() {
     clock_t start_measure, end_measure;
     int ***array_3d = GetPointer_3DArray();
 
-    volatile int P = GetDimension('P');
-    volatile int M = GetDimension('M');
-    volatile int N = GetDimension('N');
-    volatile int p, s, i_min, i, tmp, j;
+    int P = GetDimension('P');
+    int M = GetDimension('M');
+    int N = GetDimension('N');
+    int p, s, i_min, i, tmp, j;
 
 
     start_measure = clock();//початок вимірів
@@ -53,8 +53,8 @@ clock_t SortingSelect_6_vector() {
     // Підготовка сортування, виділення пам'яті
     clock_t start_measure, end_measure;
     int *array_vector = GetPointer_Vector();
-    volatile int N = GetDimension('N');
-    volatile int i_min, tmp, s, i;
+    int N = GetDimension('N');
+    int i_min, tmp, s, i;
 
     start_measure = clock(); //початок вимірів
     for (s = 0; s < N - 1; s++) {

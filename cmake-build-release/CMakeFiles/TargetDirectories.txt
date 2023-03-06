@@ -1,3 +1,0 @@
-C:/Users/valen/CLionProjects/Course_work/cmake-build-release/CMakeFiles/Course_work.dir
-C:/Users/valen/CLionProjects/Course_work/cmake-build-release/CMakeFiles/edit_cache.dir
-C:/Users/valen/CLionProjects/Course_work/cmake-build-release/CMakeFiles/rebuild_cache.dir
