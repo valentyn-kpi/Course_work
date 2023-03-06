@@ -28,6 +28,7 @@ clock_t SortingShell_1_3D() {
 
     if (N < 4) t = 1;
     else t = (int) log2f((float) N) - 1;
+
     int *Stages = malloc(t * sizeof(int));
     int *coll = malloc(M * sizeof(int));
 
