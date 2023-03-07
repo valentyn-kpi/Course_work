@@ -38,7 +38,7 @@
 /**
  * Перевірити відсортованість після сортування.
  */
-#define VERIFY_SORT
+//#define VERIFY_SORT
 
 /**
  * Кількість ключів для першого випадку дослідження.
@@ -58,7 +58,7 @@
 /**
  * Не виводити сміття в консоль.
  */
-//#define SUP_DEBUG
+#define SUP_DEBUG
 #define SUP_ARRAY_PRINT
 
 

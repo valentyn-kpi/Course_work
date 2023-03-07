@@ -368,7 +368,6 @@ void All_debug() {
 
     // Add the results to the spreadsheet
     InitSpreadsheet();
-
     AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
     AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
     AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
