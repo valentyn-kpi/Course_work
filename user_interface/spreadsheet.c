@@ -70,15 +70,15 @@ void PintRows(const char *description) {
 
     const int num_cols = sizeof(headers) / sizeof(headers[0]);
     for (int i = 0; i < num_cols; ++i) {
-        printf("%-15s", headers[i]);
+        printf("%-30s", headers[i]);
     }
     printf("\n\n");
     // Print the table body
     for (int i = 0; i < next_index; ++i) {
         printf("%-30s", rows[i].name);
-        printf("%-15.3f", rows[i].sorted);
-        printf("%-15.3f", rows[i].random);
-        printf("%-15.3f", rows[i].back_sorted);
+        printf("%30.3f", rows[i].sorted);
+        printf("%30.3f", rows[i].random);
+        printf("%30.3f", rows[i].back_sorted);
         printf("\n");
     }
 
@@ -110,16 +110,16 @@ void PrintRowsToFile(const char *description, const char *filename) {
 
     const int num_cols = sizeof(headers) / sizeof(headers[0]);
     for (int i = 0; i < num_cols; ++i) {
-        fprintf(fp, "%-15s", headers[i]);
+        fprintf(fp, "%30s", headers[i]);
     }
     fprintf(fp, "\n\n");
 
     // Print the table body to the file
     for (int i = 0; i < next_index; ++i) {
         fprintf(fp, "%-30s", rows[i].name);
-        fprintf(fp, "%-15.3f", rows[i].sorted);
-        fprintf(fp, "%-15.3f", rows[i].random);
-        fprintf(fp, "%-15.3f", rows[i].back_sorted);
+        fprintf(fp, "%30.3f", rows[i].sorted);
+        fprintf(fp, "%30.3f", rows[i].random);
+        fprintf(fp, "%30.3f", rows[i].back_sorted);
         fprintf(fp, "\n");
     }
 
