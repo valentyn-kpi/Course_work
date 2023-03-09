@@ -510,9 +510,9 @@ void SecondResearchCase() {
  * Третій випадок дослідження.
  */
 void ThirdResearchCase() {
-    const int M = CASE_M; // constant
-    int P_values[6] = {4, 40, 400, 4000, 40000, 400000};
-    int N_values[6] = {400000, 40000, 4000, 400, 40, 4};
+    const int M = CASE_M;
+    int P_values[6] = {1, 10, 100, 1000, 10000, 100000};
+    int N_values[6] = {100000, 10000, 1000, 100, 10, 1};
 
     // Measure the sorting time for different cases
     float select_sorted_time, select_random_time, select_back_sorted_time;
