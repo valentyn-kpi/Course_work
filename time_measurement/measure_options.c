@@ -75,7 +75,6 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
         if (result <= 0) {
             printf("\nFATAL: measurements failed!\n");
             fflush(stdout);
-            fflush(stdout);
             fflush(stdin);
             getchar();
             exit(EFAULT);
@@ -466,15 +465,15 @@ void FirstResearchCase() {
  */
 void SecondResearchCase() {
     const int P = CASE_P; // constant
-    int M_values[8] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000};
-    int N_values[8] = {10000000, 1000000, 100000, 10000, 1000, 100, 10, 1};
+    int M_values[6] = {1, 10, 100, 1000, 10000, 100000};
+    int N_values[6] = {100000, 10000, 1000, 100, 10, 1};
 
 // Measure the sorting time for different cases
     float select_sorted_time, select_random_time, select_back_sorted_time;
     float shell_sorted_time, shell_random_time, shell_back_sorted_time;
     float hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time;
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 6; i++) {
         int m = M_values[i];
         int n = N_values[i];
         select_sorted_time = do_measuring_3d(SortingSelect_6, SORTED_CASE, P, m, n);
