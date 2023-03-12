@@ -113,7 +113,7 @@ static void sort_values() {
  * @return середнє значення масиву.
  */
 static float calculate_average() {
-    double sum = 0;
+    long double sum = 0;
 
     for (int i = 0; i < next_index; ++i) {
         sum += values[i];
