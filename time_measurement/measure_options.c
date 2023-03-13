@@ -94,7 +94,7 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
 }
 
 /**
- * Повне налагодження всіх алгоритмі.
+ * Повне налагодження всіх алгоритмів.
  */
 void Debug_f() {
     int p = 0, m = 0, n = 0, t = 0, fill = 0;
