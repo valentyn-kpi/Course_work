@@ -38,12 +38,12 @@
 /**
  * Перевірити відсортованість після сортування.
  */
-//#define VERIFY_SORT
+#define VERIFY_SORT
 
 /**
  * Кількість ключів для першого випадку дослідження.
  */
-#define FIRST_CASE_N 40000
+#define FIRST_CASE_N 10000
 
 /**
  *Кількість перерізів для першого та другого випадку дослідження.
@@ -53,13 +53,13 @@
 /**
  *Кількість рядків для третього випадку дослідження.
  */
-#define CASE_M 50
+#define CASE_M 20
 
 /**
  * Не виводити сміття в консоль.
  */
 //#define SUP_DEBUG
-#define SUP_ARRAY_PRINT
+//#define SUP_ARRAY_PRINT
 
 
 #define BACK_SORTED_CASE (-1)

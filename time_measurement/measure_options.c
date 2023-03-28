@@ -35,7 +35,7 @@ static float do_measuring_3d(clock_t (*fnc)(), int scase, int p, int m, int n) {
         fflush(stdout);
         float result = lowDiffAvgTimeMeasure(fnc, scase, ARRAY_3D);
 
-        if (result <= 0) {
+        if (result <= 0) {//результат виміру 0 або менше.
             printf("\nFATAL: measurements failed!\n");
             fflush(stdout);
             fflush(stdin);

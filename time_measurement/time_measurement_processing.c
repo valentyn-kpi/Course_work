@@ -138,7 +138,7 @@ float ProcessValues() {
         reject_values(MIN_MAX_NUMBER, MIN_MAX_NUMBER);//відкинути перші та останні min_max_number елементи
         print_values();
 
-        printf("");
+        printf("");//навіщо?
 
         return calculate_average();                              //пошук середнього
     } else {
@@ -194,7 +194,8 @@ static void printArray(int *arr, int size) {
  */
 float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
     clock_t temp, temp2, diff;
-    unsigned int seed = time(NULL);
+    unsigned int seed = time(NULL);//отримання сіду для генератора псевдорандомних чисел
+    // (обидва виміри з однаковим сідом - однакові псевдорандомні значення)
 
 #ifndef SUP_ARRAY_PRINT
     if (array_type == ARRAY_VECTOR) {
@@ -211,7 +212,6 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
 #endif
 
     int iterCount = 0;
-    //для генерації однакових псевдовипадкових масивів.
     do {//поки різниця більша за бажану та кількість ітерацій менше за максимальну
         if (array_type == ARRAY_VECTOR) {
             FillVector(scase, seed);
@@ -231,6 +231,7 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
 #endif
 
     } while ((diff > temp2 * MAX_DIFFERENCE) && iterCount++ < MAX_ITERATIONS);
+    //поки різниця більша за бажану та кількість ітерацій менше за максимальну
 
     if (iterCount >= MAX_ITERATIONS) {//перевіряємо, чи досягнуто максимальну кількість ітерацій
         printf("\n\nFATAL: System unstable!\n"
@@ -248,6 +249,6 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
         exit(-1);
     }
 
-    return (float) ((temp + temp2) / 2.0);//ділимо на два
+    return (float) ((temp + temp2) / 2.0);
 }
 

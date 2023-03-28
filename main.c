@@ -14,6 +14,7 @@ int main() {
     AddOption("Second research case", SecondResearchCase);
     AddOption("Third research case", ThirdResearchCase);
     AddOption("Full research", AllResearchCases);
+
     PrintMenu();    //Вивід меню.
 
     ProcessInput(); //Зациклення меню до виходу з нього. обробка вводу.

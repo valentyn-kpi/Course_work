@@ -1,2 +1,2 @@
-# Course_work
+# Coursework
 First course, coursework

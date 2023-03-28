@@ -60,7 +60,7 @@ void AllocateVector(int n) {
 
 /**
  * Виділення пам'яті на трьохвимірний масив заданого розміру.
- * У випадку помилки виділення пам'яті - аварійне завершення програми з кодом 8.
+ * У випадку помилки виділення пам'яті - аварійне завершення програми, вивід місця помилки.
  * @param p - Кількість перерізів
  * @param m - Кількість рядків
  * @param n - Кількість стовпчиків
@@ -167,7 +167,7 @@ void Deallocate3DArray() {
  */
 void DeallocateVector() {
     if (vector_pointer != NULL) {
-        // Free the memory for the array
+        // Free the memory used by array
         free(vector_pointer);
         vector_pointer = NULL;
 #ifndef SUP_DEBUG
