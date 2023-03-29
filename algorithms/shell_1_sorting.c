@@ -2,6 +2,10 @@
 // Created by Valentyn Valentiev on 2/18/2023.
 //
 
+/*
+ * Модуль сортування Шелла вектора та 3Д масиву.
+ */
+
 #include <math.h>
 #include <stdlib.h>
 #include "shell_1_sorting.h"

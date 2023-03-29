@@ -2,6 +2,11 @@
 // Created by Valentyn Valentiev on 2/18/2023.
 //
 
+/*
+ * Модуль виділення та звільнення пам'яті для вектора та 3Д масивів
+ * функції повернення розмірів масивів та повернення вказівників на масиви.
+ */
+
 #include "common_array.h"
 #include <stdlib.h>
 #include <stdio.h>

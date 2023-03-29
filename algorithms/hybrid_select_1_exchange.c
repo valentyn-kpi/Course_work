@@ -2,6 +2,10 @@
 // Created by Valentyn Valentiev on 2/18/2023.
 //
 
+/*
+ * Модуль гібридного сортування вектора та 3Д масиву.
+ */
+
 #include "hybrid_select_1_exchange.h"
 #include "common_array.h"
 

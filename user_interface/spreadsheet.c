@@ -2,6 +2,11 @@
 // Created by Valentyn Valentiev on 2/18/2023.
 //
 
+/*
+ * Модуль збереження результатів виміру
+ * вивід таблиць у файл та у консоль.
+ */
+
 #include "spreadsheet.h"
 #include "stdlib.h"
 #include "stdio.h"

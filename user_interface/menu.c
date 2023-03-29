@@ -2,6 +2,11 @@
 // Created by Valentyn Valentiev on 2/17/2023.
 //
 
+/*
+ * Модуль додавання пунктів меню, його виведення
+ * обробка команд користувача.
+ */
+
 #include "menu.h"
 #include <stdio.h>
 #include <stdlib.h>

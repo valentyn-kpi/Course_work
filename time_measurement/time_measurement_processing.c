@@ -1,6 +1,9 @@
 //
 // Created by Valentyn Valentiev on 2/14/2023.
 //
+/*
+ * Модуль збереження та обробки вимірів.
+ */
 
 #include "time_measurement_processing.h"
 #include <stdlib.h>
@@ -225,11 +228,9 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
             temp2 = fnc();
         }
         diff = labs(temp - temp2);
-
 #ifndef SUP_DEBUG
         printf("\nCurrent time difference: %ld\n", diff);
 #endif
-
     } while ((diff > temp2 * MAX_DIFFERENCE) && iterCount++ < MAX_ITERATIONS);
     //поки різниця більша за бажану та кількість ітерацій менше за максимальну
 
@@ -248,7 +249,6 @@ float lowDiffAvgTimeMeasure(clock_t (*fnc)(), int scase, int array_type) {
         getchar();
         exit(-1);
     }
-
     return (float) ((temp + temp2) / 2.0);
 }
 

@@ -2,6 +2,10 @@
 // Created by Valentyn Valentiev on 2/18/2023.
 //
 
+/*
+ * Модуль сортування вибором вектора та 3Д масиву.
+ */
+
 #include "select_6_sorting.h"
 #include "common_array.h"
 

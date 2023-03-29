@@ -2,6 +2,15 @@
 // Created by Valentyn Valentiev on 2/18/2023.
 //
 
+/*
+ * Модуль зв'язку user_interface та measurement_processing.
+ *
+ * Детальніше
+ * Модуль виклику функцій сортування, передавання результатів на обробку,
+ * передавання оброблених результатів на збереження до виклику функцій виводу
+ * у консоль та файл, виклик останніх.
+ */
+
 #include "measure_options.h"
 #include "time_measurement_processing.h"
 

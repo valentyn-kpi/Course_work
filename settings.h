@@ -1,6 +1,9 @@
 //
 // Created by Valentyn Valentiev on 2/17/2023.
 //
+/**
+ * Файл налаштувань програми.
+ */
 
 #ifndef COURSE_WORK_SETTINGS_H
 #define COURSE_WORK_SETTINGS_H
