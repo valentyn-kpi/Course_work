@@ -90,6 +90,8 @@ void PrintMenu() {
         printf("Not initialized!\n");
 #endif
     }
+    fflush(stdout);
+    fflush(stdin);
 }
 
 /**

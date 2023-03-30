@@ -92,7 +92,6 @@ void PintRows(const char *description) {
 
     fflush(stdout);
     fflush(stdin);
-    getchar();
 }
 
 /**

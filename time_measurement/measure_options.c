@@ -510,6 +510,7 @@ void SecondResearchCase() {
         PrintRowsToFile(c, "Spreadsheets.txt");
 
         fflush(stdout);
+        fflush(stdin);
 
         DealocSpreadsheet();
     }
@@ -556,6 +557,7 @@ void ThirdResearchCase() {
         PrintRowsToFile(c, "Spreadsheets.txt");
 
         fflush(stdout);
+        fflush(stdin);
 
         DealocSpreadsheet();
     }
