@@ -100,7 +100,7 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
 void Memory_access_time() {
     const int P = 1;
     const int M = 1;
-    const int N = INT_MAX/64;
+    const int N = INT_MAX/4;
 
 
     // Measure the sorting time for different cases
