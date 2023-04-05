@@ -20,7 +20,7 @@ void abc(__attribute__((unused)) int a) {
  * @return час читання
  */
 clock_t Array3DTime_r() {
-    clock_t start_measure, end_measure;
+    clock_t start_measure, end_measure, withloop, loop;
     int ***array_3d = GetPointer_3DArray();
 
     int N = GetDimension('N');
@@ -34,9 +34,18 @@ clock_t Array3DTime_r() {
     }
     end_measure = clock();
 
+    withloop = end_measure - start_measure;
+
+    start_measure = clock();
+    for (i = 0; i < N; ++i) {
+    }
+    end_measure = clock();
+
+    loop = end_measure - start_measure;
+
     abc(a);
 
-    return end_measure - start_measure;
+    return withloop - loop;
 }
 
 /**
@@ -44,7 +53,7 @@ clock_t Array3DTime_r() {
  * @return час запису
  */
 clock_t Array3DTime_w() {
-    clock_t start_measure, end_measure;
+    clock_t start_measure, end_measure, withloop, loop;
     int ***array_3d = GetPointer_3DArray();
 
     int N = GetDimension('N');
@@ -58,7 +67,16 @@ clock_t Array3DTime_w() {
     }
     end_measure = clock();
 
-    return end_measure - start_measure;
+    withloop = end_measure - start_measure;
+
+    start_measure = clock();
+    for (i = 0; i < N; ++i) {
+    }
+    end_measure = clock();
+
+    loop = end_measure - start_measure;
+
+    return withloop - loop;
 }
 
 /**
@@ -66,7 +84,7 @@ clock_t Array3DTime_w() {
  * @return час обміну.
  */
 clock_t Array3DTime_s() {
-    clock_t start_measure, end_measure;
+    clock_t start_measure, end_measure, withloop, loop;
     int ***array_3d = GetPointer_3DArray();
 
     int N = GetDimension('N');
@@ -82,7 +100,16 @@ clock_t Array3DTime_s() {
     }
     end_measure = clock();
 
-    return end_measure - start_measure;
+    withloop = end_measure - start_measure;
+
+    start_measure = clock();
+    for (i = 0; i < N / 2; ++i) {
+    }
+    end_measure = clock();
+
+    loop = end_measure - start_measure;
+
+    return withloop - loop;
 }
 
 /**
@@ -90,7 +117,7 @@ clock_t Array3DTime_s() {
  * @return час читання.
  */
 clock_t VectorTime_r() {
-    clock_t start_measure, end_measure;
+    clock_t start_measure, end_measure, withloop, loop;
     int *array_vector = GetPointer_Vector();
     int N = GetDimension('N');
 
@@ -105,7 +132,16 @@ clock_t VectorTime_r() {
 
     abc(a);
 
-    return end_measure - start_measure;
+    withloop = end_measure - start_measure;
+
+    start_measure = clock();
+    for (i = 0; i < N; ++i) {
+    }
+    end_measure = clock();
+
+    loop = end_measure - start_measure;
+
+    return withloop - loop;
 }
 
 /**
@@ -113,7 +149,7 @@ clock_t VectorTime_r() {
  * @return час запису.
  */
 clock_t VectorTime_w() {
-    clock_t start_measure, end_measure;
+    clock_t start_measure, end_measure, withloop, loop;
     int *array_vector = GetPointer_Vector();
     int N = GetDimension('N');
 
@@ -126,7 +162,16 @@ clock_t VectorTime_w() {
     }
     end_measure = clock();
 
-    return end_measure - start_measure;
+    withloop = end_measure - start_measure;
+
+    start_measure = clock();
+    for (i = 0; i < N; ++i) {
+    }
+    end_measure = clock();
+
+    loop = end_measure - start_measure;
+
+    return withloop - loop;
 }
 
 /**
@@ -134,7 +179,7 @@ clock_t VectorTime_w() {
  * @return час обміну.
  */
 clock_t VectorTime_s() {
-    clock_t start_measure, end_measure;
+    clock_t start_measure, end_measure, withloop, loop;
     int *array_vector = GetPointer_Vector();
     int N = GetDimension('N');
 
@@ -148,8 +193,16 @@ clock_t VectorTime_s() {
         array_vector[N - i] = a;
     }
     end_measure = clock();
+    withloop = end_measure - start_measure;
 
-    return end_measure - start_measure;
+    start_measure = clock();
+    for (i = 0; i < N / 2; ++i) {
+    }
+    end_measure = clock();
+
+    loop = end_measure - start_measure;
+
+    return withloop - loop;
 }
 
 #pragma GCC optimize ("O2")
