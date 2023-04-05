@@ -116,7 +116,7 @@ void Memory_access_time() {
 
     AddRow("Memory timing", read, write, swap);
 
-    char c[64];
+    char c[128];
     sprintf(c, "Memory timing for 3D array sized %d x %d x %d:", P, M, N);
     PintRows(c);
     PrintRowsToFile(c, "Spreadsheets.txt");
@@ -251,7 +251,7 @@ void SelectSort_debug() {
     InitSpreadsheet();
     AddRow("Selection sort #6", sorted_time, random_time, back_sorted_time);
 
-    char c[64];
+    char c[128];
 
     if (t)
         sprintf(c, "Selection sorting results for vector sized %d:", n);
@@ -301,7 +301,7 @@ void ShellSort_debug() {
     // Add the results to the spreadsheet
     InitSpreadsheet();
     AddRow("Shell sorting #1", sorted_time, random_time, back_sorted_time);
-    char c[64];
+    char c[128];
 
     if (t)
         sprintf(c, "Shell sorting results for vector sized %d:", n);
@@ -351,7 +351,7 @@ void HybridSort_exchange_debug() {
     // Add the results to the spreadsheet
     InitSpreadsheet();
     AddRow("Hybrid sorting", sorted_time, random_time, back_sorted_time);
-    char c[64];
+    char c[128];
 
     if (t)
         sprintf(c, "Hybrid sorting (select #1 - exchange) results for vector sized %d:", n);
@@ -421,7 +421,7 @@ void All_debug() {
     AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
     AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
     AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
-    char c[64];
+    char c[128];
 
     if (t)
         sprintf(c, "Full results for vector sized %d:", n);
@@ -471,7 +471,7 @@ void FirstResearchCase() {
         AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
         AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
 
-        char c[64];
+        char c[128];
         sprintf(c, "Full results for 3D array sized %d x %d x %d:", P, m, N);
         PintRows(c);
         PrintRowsToFile(c, "Spreadsheets.txt");
@@ -501,7 +501,7 @@ void FirstResearchCase() {
     AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
     AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
 
-    char c[64];
+    char c[128];
     sprintf(c, "Full multiplied by %d results for vector sized %d:", P, N);
     PintRows(c);
     PrintRowsToFile(c, "Spreadsheets.txt");
@@ -546,7 +546,7 @@ void SecondResearchCase() {
         AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
         AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
 
-        char c[64];
+        char c[128];
         sprintf(c, "Full results for 3D array sized %d x %d x %d:", P, m, n);
         PintRows(c);
         PrintRowsToFile(c, "Spreadsheets.txt");
@@ -593,7 +593,7 @@ void ThirdResearchCase() {
         AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
         AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
 
-        char c[64];
+        char c[128];
         sprintf(c, "Full results for 3D array sized %d x %d x %d:", p, M, n);
         PintRows(c);
         PrintRowsToFile(c, "Spreadsheets.txt");
