@@ -8,7 +8,7 @@ add_executable(Coursework main.c time_measurement/time_measurement_processing.c
         user_interface/menu.h user_interface/spreadsheet.c user_interface/spreadsheet.h
         time_measurement/measure_options.c time_measurement/measure_options.h algorithms/select_6_sorting.c
         algorithms/select_6_sorting.h algorithms/common_array.c algorithms/common_array.h algorithms/hybrid_select_1_exchange.c
-        algorithms/hybrid_select_1_exchange.h algorithms/shell_1_sorting.c algorithms/shell_1_sorting.h)
+        algorithms/hybrid_select_1_exchange.h algorithms/shell_1_sorting.c algorithms/shell_1_sorting.h algorithms/memory_access_test.c algorithms/memory_access_test.h)
 
 #math lib for linux
 target_link_libraries(Coursework m)

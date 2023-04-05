@@ -23,4 +23,6 @@ void ThirdResearchCase();
 
 void AllResearchCases();
 
+void Memory_access_time();
+
 #endif //COURSE_WORK_MEASURE_OPTIONS_H

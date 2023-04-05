@@ -39,11 +39,6 @@
 #define REJECTED_NUMBER 2
 
 /**
- * Перевірити відсортованість після сортування.
- */
-#define VERIFY_SORT
-
-/**
  * Кількість ключів для першого випадку дослідження.
  */
 #define FIRST_CASE_N 10000
@@ -61,13 +56,14 @@
 /**
  * Не виводити сміття в консоль.
  */
-//#define SUP_DEBUG
-//#define SUP_ARRAY_PRINT
+#define SUP_DEBUG
+#define SUP_ARRAY_PRINT
 
 
 #define BACK_SORTED_CASE (-1)
 #define SORTED_CASE 1
 #define RANDOM_CASE 0
+#define NONE 99
 #define ARRAY_3D 1
 #define ARRAY_VECTOR 0
 

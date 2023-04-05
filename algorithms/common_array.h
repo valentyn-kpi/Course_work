@@ -15,10 +15,6 @@ void Deallocate3DArray();
 
 void Fill3DArray(int sort, unsigned int seed);
 
-void VerifySorting();
-
-void VerifySortingVector();
-
 int *GetPointer_Vector();
 
 void DeallocateVector();

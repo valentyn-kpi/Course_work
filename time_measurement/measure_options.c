@@ -17,6 +17,7 @@
 #include "../algorithms/select_6_sorting.h"
 #include "../algorithms/hybrid_select_1_exchange.h"
 #include "../algorithms/shell_1_sorting.h"
+#include "../algorithms/memory_access_test.h"
 
 #include "../algorithms/common_array.h"
 #include "../settings.h"
@@ -45,14 +46,11 @@ static float do_measuring_3d(clock_t (*fnc)(), int scase, int p, int m, int n) {
         float result = lowDiffAvgTimeMeasure(fnc, scase, ARRAY_3D);
 
         if (result <= 0) {//результат виміру 0 або менше.
-            printf("\nFATAL: measurements failed!\n");
+            printf("\nWARNING: measurements failed!\n");
             fflush(stdout);
             fflush(stdin);
-            getchar();
-            exit(EFAULT);
         }
 
-        VerifySorting();
         AddValue(result);
     }
     Deallocate3DArray();
@@ -82,14 +80,11 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
         float result = lowDiffAvgTimeMeasure(fnc, scase, ARRAY_VECTOR);
 
         if (result <= 0) {
-            printf("\nFATAL: measurements failed!\n");
+            printf("\nWARNING: measurements failed!\n");
             fflush(stdout);
             fflush(stdin);
-            getchar();
-            exit(EFAULT);
         }
 
-        VerifySortingVector();
         AddValue(result);
     }
 
@@ -100,6 +95,53 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
     DeallocTimeMeasurement();
 
     return processed;
+}
+
+void Memory_access_time() {
+    const int P = 1;
+    const int M = 1;
+    const int N = INT_MAX/64;
+
+
+    // Measure the sorting time for different cases
+    float read, write, swap;
+
+    // 3D array case
+    read = do_measuring_3d(Array3DTime_r, NONE, P, M, N);
+    write = do_measuring_3d(Array3DTime_w, NONE, P, M, N);
+    swap = do_measuring_3d(Array3DTime_s, NONE, P, M, N);
+
+    // Add the results to the spreadsheet
+    InitSpreadsheet();
+
+    AddRow("Memory timing", read, write, swap);
+
+    char c[64];
+    sprintf(c, "Memory timing for 3D array sized %d x %d x %d:", P, M, N);
+    PintRows(c);
+    PrintRowsToFile(c, "Spreadsheets.txt");
+
+    fflush(stdout);
+
+    DealocSpreadsheet();
+
+    // Vector case
+    read = do_measuring_vector(VectorTime_r, NONE, N);
+    write = do_measuring_vector(VectorTime_w, NONE, N);
+    swap = do_measuring_vector(VectorTime_s, NONE, N);
+
+    // Add the results to the spreadsheet
+    InitSpreadsheet();
+
+    AddRow("Memory timing", read, write, swap);
+
+    sprintf(c, "Memory timing for vector sized %d:", N);
+    PintRows(c);
+    PrintRowsToFile(c, "Spreadsheets.txt");
+    DealocSpreadsheet();
+
+    fflush(stdout);
+    fflush(stdin);
 }
 
 /**

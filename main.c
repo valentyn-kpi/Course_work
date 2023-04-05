@@ -14,6 +14,7 @@ int main() {
     AddOption("Second research case", SecondResearchCase);
     AddOption("Third research case", ThirdResearchCase);
     AddOption("Full research", AllResearchCases);
+    AddOption("Memory access timing compare", Memory_access_time);
 
     PrintMenu();    //Вивід меню.
 

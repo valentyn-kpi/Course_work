@@ -1,0 +1,155 @@
+//
+// Created by Valentyn Valentiev on 4/5/2023.
+//
+
+/*
+ * Модуль виміру часу читання/запису/обміну елементів 3Д масиву та вектору.
+ */
+#include "memory_access_test.h"
+#include "common_array.h"
+
+#pragma GCC optimize ("O0")
+
+
+void abc(__attribute__((unused)) int a) {
+    //do nothing
+}
+
+/**
+ * Читання (сміття) з 3Д масиву в локальну змінну
+ * @return час читання
+ */
+clock_t Array3DTime_r() {
+    clock_t start_measure, end_measure;
+    int ***array_3d = GetPointer_3DArray();
+
+    int N = GetDimension('N');
+
+    int i, a;
+
+    start_measure = clock();
+    //read
+    for (i = 0; i < N; ++i) {
+        a = array_3d[0][0][i];
+    }
+    end_measure = clock();
+
+    abc(a);
+
+    return end_measure - start_measure;
+}
+
+/**
+ * Запис (5) в 3Д масив з локальної змінної
+ * @return час запису
+ */
+clock_t Array3DTime_w() {
+    clock_t start_measure, end_measure;
+    int ***array_3d = GetPointer_3DArray();
+
+    int N = GetDimension('N');
+
+    int i, a = 5;
+
+    start_measure = clock();
+    //write
+    for (i = 0; i < N; ++i) {
+        array_3d[0][0][i] = a;
+    }
+    end_measure = clock();
+
+    return end_measure - start_measure;
+}
+
+/**
+ * Обмін елементів (сміття) 3Д масиву через локальну змінну.
+ * @return час обміну.
+ */
+clock_t Array3DTime_s() {
+    clock_t start_measure, end_measure;
+    int ***array_3d = GetPointer_3DArray();
+
+    int N = GetDimension('N');
+
+    int i, a;
+
+    start_measure = clock();
+    //swap
+    for (i = 0; i < N / 2; ++i) {
+        a = array_3d[0][0][i];
+        array_3d[0][0][i] = array_3d[0][0][N - i];
+        array_3d[0][0][N - i] = a;
+    }
+    end_measure = clock();
+
+    return end_measure - start_measure;
+}
+
+/**
+ * Читання (сміття) з вектору в локальну змінну.
+ * @return час читання.
+ */
+clock_t VectorTime_r() {
+    clock_t start_measure, end_measure;
+    int *array_vector = GetPointer_Vector();
+    int N = GetDimension('N');
+
+    int i, a;
+
+    start_measure = clock();
+    //read
+    for (i = 0; i < N; ++i) {
+        a = array_vector[i];
+    }
+    end_measure = clock();
+
+    abc(a);
+
+    return end_measure - start_measure;
+}
+
+/**
+ * Запис (5) в вектор з локальної змінної.
+ * @return час запису.
+ */
+clock_t VectorTime_w() {
+    clock_t start_measure, end_measure;
+    int *array_vector = GetPointer_Vector();
+    int N = GetDimension('N');
+
+    int i, a = 5;
+
+    start_measure = clock();
+    //write
+    for (i = 0; i < N; ++i) {
+        array_vector[i] = a;
+    }
+    end_measure = clock();
+
+    return end_measure - start_measure;
+}
+
+/**
+ * Обмін елементів (сміття) вектору через локальну змінну.
+ * @return час обміну.
+ */
+clock_t VectorTime_s() {
+    clock_t start_measure, end_measure;
+    int *array_vector = GetPointer_Vector();
+    int N = GetDimension('N');
+
+    int i, a;
+
+    start_measure = clock();
+    //swap
+    for (i = 0; i < N / 2; ++i) {
+        a = array_vector[i];
+        array_vector[i] = array_vector[N - i];
+        array_vector[N - i] = a;
+    }
+    end_measure = clock();
+
+    return end_measure - start_measure;
+}
+
+#pragma GCC optimize ("O2")
