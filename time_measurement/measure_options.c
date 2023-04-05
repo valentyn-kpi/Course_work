@@ -25,7 +25,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
-#include <stdlib.h>
+#include <limits.h>
 
 /**
  * Отримання усереднених вимірів.
