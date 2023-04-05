@@ -96,7 +96,6 @@ void PrintMenu() {
 
 /**
  * Обробка вводу.
- * @param d - номер опції в меню
  */
 void ProcessInput() {
     if (next_index < 0) {
