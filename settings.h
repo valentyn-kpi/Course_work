@@ -59,7 +59,9 @@
 #define SUP_DEBUG
 #define SUP_ARRAY_PRINT
 
-
+/**
+ * глобальні константи
+ */
 #define BACK_SORTED_CASE (-1)
 #define SORTED_CASE 1
 #define RANDOM_CASE 0

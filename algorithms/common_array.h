@@ -5,22 +5,22 @@
 #ifndef COURSE_WORK_COMMON_ARRAY_H
 #define COURSE_WORK_COMMON_ARRAY_H
 
-int GetDimension(char C);
+void AllocateVector(int n);
 
 void Allocate3DArray(int p, int m, int n);
 
 int ***GetPointer_3DArray();
 
-void Deallocate3DArray();
-
-void Fill3DArray(int sort, unsigned int seed);
-
 int *GetPointer_Vector();
 
-void DeallocateVector();
+int GetDimension(char C);
 
 void FillVector(int sort, unsigned int seed);
 
-void AllocateVector(int n);
+void Fill3DArray(int sort, unsigned int seed);
+
+void Deallocate3DArray();
+
+void DeallocateVector();
 
 #endif //COURSE_WORK_COMMON_ARRAY_H

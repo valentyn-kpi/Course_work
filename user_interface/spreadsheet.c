@@ -4,7 +4,7 @@
 
 /*
  * Модуль збереження результатів виміру
- * вивід таблиць у файл та у консоль.
+ * Вивід таблиць у файл та у консоль.
  */
 
 #include "spreadsheet.h"
@@ -17,17 +17,23 @@ typedef struct row {
     float random;
     float back_sorted;
 } ROW;
+//алгоритм, час сортування впорядкованого, час сортування невпорядкованого, час сортування обернено впорядкованого
 
 static ROW *rows = NULL;
 static int next_index = -1;
+static char *headers[3];// = {"Sorted", "Random", "Back-sorted"};
 
 /**
  * Ініціалізація таблиці.
+ * @param header - масив з трьома елементами, які будуть використані як заголовки стовпців
  */
-void InitSpreadsheet() {
+void InitSpreadsheet(char *header[]) {
     if (next_index == -1) {
         rows = malloc(0);
         next_index = 0;
+        headers[0] = header[0];
+        headers[1] = header[1];
+        headers[2] = header[2];
     } else {
         //already initialised
 #ifndef SUP_DEBUG
@@ -68,7 +74,6 @@ void AddRow(const char *name, float sorted, float random, float back_sorted) {
  * @param description опис таблиці
  */
 void PintRows(const char *description) {
-    const char *headers[] = {"Sorted", "Random", "Back-sorted"};
     // Print the table header
     printf("\n%s\n\n", description);
     printf("%-30s", "Algorithm");
@@ -100,7 +105,6 @@ void PintRows(const char *description) {
  * @param filename ім'я файлу.
  */
 void PrintRowsToFile(const char *description, const char *filename) {
-    const char *headers[] = {"Sorted", "Random", "Back-sorted"};
     // Open the file in append mode
     FILE *fp = fopen(filename, "a");
     if (fp == NULL) {

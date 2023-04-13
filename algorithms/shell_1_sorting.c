@@ -34,28 +34,30 @@ clock_t SortingShell_1_3D() {
     else t = (int) log2f((float) N) - 1;
 
     int *Stages = malloc(t * sizeof(int));
-    int *coll = malloc(M * sizeof(int));
+    int *coll = malloc(M * sizeof(int)); // масив для збереження цілого стовпчика
 
     start_measure = clock();
+
+    Stages[t - 1] = 1;
+    for (i = t - 2; i >= 0; i--)
+        Stages[i] = 2 * Stages[i + 1] + 1;
+
     for (slice = 0; slice < P; ++slice) {
-        Stages[t - 1] = 1;
-        for (i = t - 2; i >= 0; i--)
-            Stages[i] = 2 * Stages[i + 1] + 1;
         for (p = 0; p < t; p++) {
             k = Stages[p];
             for (i = k; i < N; i++) {
                 for (m = 0; m < M; ++m) {
-                    coll[m] = array_3d[slice][m][i];
+                    coll[m] = array_3d[slice][m][i]; //копіюємо стовпчик перед зсувом.
                 }
                 j = i;
                 while (j >= k && coll[0] < array_3d[slice][0][j - k]) {
                     for (m = 0; m < M; ++m) {
-                        array_3d[slice][m][j] = array_3d[slice][m][j - k];
+                        array_3d[slice][m][j] = array_3d[slice][m][j - k];//зсуваємо матрицю
                     }
                     j = j - k;
                 }
                 for (m = 0; m < M; ++m) {
-                    array_3d[slice][m][j] = coll[m];
+                    array_3d[slice][m][j] = coll[m]; //вставляємо скопійований стовпчик
                 }
             }
         }
@@ -71,7 +73,7 @@ clock_t SortingShell_1_3D() {
 /**
  * Алгоритм №1 методу сортування Шелла (класичний варіант
  * на основі прямої вставки №2).
- * Для вектору
+ * Для вектору.
  * @return Час сортування clock_t.
  */
 clock_t SortingShell_1_vector() {

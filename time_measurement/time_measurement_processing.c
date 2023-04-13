@@ -94,7 +94,7 @@ static void print_values() {
 }
 
 /**
-* Функія сортування масиву методом вибору.
+* Функція сортування масиву методом вибору.
 */
 static void sort_values() {
     for (int i = 0; i < next_index - 1; i++) {
