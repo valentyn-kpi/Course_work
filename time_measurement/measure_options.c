@@ -1,3 +1,4 @@
+//time_measurement/measure_options.c
 //
 // Created by Valentyn Valentiev on 2/18/2023.
 //
@@ -96,11 +97,13 @@ static float do_measuring_vector(clock_t (*fnc)(), int scase, int n) {
 
     return processed;
 }
-
+/**
+ * Вимір часу доступу до пам'яті.
+ */
 void Memory_access_time() {
     const int P = 1;
     const int M = 1;
-    const int N = INT_MAX/4;
+    const int N = INT_MAX / 4;
 
 
     // Measure the sorting time for different cases
@@ -112,7 +115,7 @@ void Memory_access_time() {
     swap = do_measuring_3d(Array3DTime_s, NONE, P, M, N);
 
     // Add the results to the spreadsheet
-    InitSpreadsheet();
+    InitSpreadsheet((char *[]) {"READ", "WRITE", "SWAP"});
 
     AddRow("Memory timing", read, write, swap);
 
@@ -131,7 +134,7 @@ void Memory_access_time() {
     swap = do_measuring_vector(VectorTime_s, NONE, N);
 
     // Add the results to the spreadsheet
-    InitSpreadsheet();
+    InitSpreadsheet((char *[]) {"READ", "WRITE", "SWAP"});
 
     AddRow("Memory timing", read, write, swap);
 
@@ -248,7 +251,7 @@ void SelectSort_debug() {
     }
 
     // Add the results to the spreadsheet
-    InitSpreadsheet();
+    InitSpreadsheet((char *[]) {"SORTED", "RANDOM", "BACK SORTED"});
     AddRow("Selection sort #6", sorted_time, random_time, back_sorted_time);
 
     char c[128];
@@ -299,7 +302,7 @@ void ShellSort_debug() {
     }
 
     // Add the results to the spreadsheet
-    InitSpreadsheet();
+    InitSpreadsheet((char *[]) {"SORTED", "RANDOM", "BACK SORTED"});
     AddRow("Shell sorting #1", sorted_time, random_time, back_sorted_time);
     char c[128];
 
@@ -349,7 +352,7 @@ void HybridSort_exchange_debug() {
     }
 
     // Add the results to the spreadsheet
-    InitSpreadsheet();
+    InitSpreadsheet((char *[]) {"SORTED", "RANDOM", "BACK SORTED"});
     AddRow("Hybrid sorting", sorted_time, random_time, back_sorted_time);
     char c[128];
 
@@ -417,7 +420,7 @@ void All_debug() {
     }
 
     // Add the results to the spreadsheet
-    InitSpreadsheet();
+    InitSpreadsheet((char *[]) {"SORTED", "RANDOM", "BACK SORTED"});
     AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
     AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
     AddRow("Shell sorting  #22", shell_sorted_time, shell_random_time, shell_back_sorted_time);
@@ -465,7 +468,7 @@ void FirstResearchCase() {
         hybrid_back_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, BACK_SORTED_CASE, P, m, N);
 
         // Add the results to the spreadsheet
-        InitSpreadsheet();
+        InitSpreadsheet((char *[]) {"SORTED", "RANDOM", "BACK SORTED"});
 
         AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
         AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
@@ -495,7 +498,7 @@ void FirstResearchCase() {
     hybrid_back_sorted_time = (float) P * do_measuring_vector(SortingHybrid_1_exchange_vector, BACK_SORTED_CASE, N);
 
     // Add the results to the spreadsheet
-    InitSpreadsheet();
+    InitSpreadsheet((char *[]) {"SORTED", "RANDOM", "BACK SORTED"});
 
     AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
     AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
@@ -540,7 +543,7 @@ void SecondResearchCase() {
         hybrid_back_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, BACK_SORTED_CASE, P, m, n);
 
         // Add the results to the spreadsheet
-        InitSpreadsheet();
+        InitSpreadsheet((char *[]) {"SORTED", "RANDOM", "BACK SORTED"});
 
         AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
         AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
@@ -587,7 +590,7 @@ void ThirdResearchCase() {
         hybrid_back_sorted_time = do_measuring_3d(SortingHybrid_1_exchange, BACK_SORTED_CASE, p, M, n);
 
         // Add the results to the spreadsheet
-        InitSpreadsheet();
+        InitSpreadsheet((char *[]) {"SORTED", "RANDOM", "BACK SORTED"});
 
         AddRow("Selection sort #10", select_sorted_time, select_random_time, select_back_sorted_time);
         AddRow("Hybrid sorting #18", hybrid_sorted_time, hybrid_random_time, hybrid_back_sorted_time);
@@ -605,6 +608,9 @@ void ThirdResearchCase() {
     }
 }
 
+/**
+ * Виконує всі три випадки дослідження.
+ */
 void AllResearchCases() {
     FirstResearchCase();
     SecondResearchCase();

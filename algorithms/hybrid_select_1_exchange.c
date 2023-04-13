@@ -1,3 +1,4 @@
+//algorithms\hybrid_select_1_exchange.c
 //
 // Created by Valentyn Valentiev on 2/18/2023.
 //
@@ -23,7 +24,7 @@ clock_t SortingHybrid_1_exchange() {
     int P = GetDimension('P');
     int M = GetDimension('M');
     int N = GetDimension('N');
-    int p, Min, s, i, j;
+    int p, Min, s, i, j, tmp;
 
     start_measure = clock();//початок вимірів
     for (p = 0; p < P; p++) {
@@ -31,10 +32,12 @@ clock_t SortingHybrid_1_exchange() {
             Min = array_3d[p][0][s];
             for (i = s + 1; i < N; i++) {
                 if (array_3d[p][0][i] < Min) {
-                    for (j = 0; j < M; ++j) {//для всіх рядків i-того стовпчика
-                        Min = array_3d[p][j][i];
+                    Min = array_3d[p][0][i];
+                    for (j = 0; j < M; ++j)
+                    {//для всіх рядків i-того стовпчика
+                        tmp = array_3d[p][j][i];
                         array_3d[p][j][i] = array_3d[p][j][s];
-                        array_3d[p][j][s] = Min;
+                        array_3d[p][j][s] = tmp;
                     }
                 }
             }

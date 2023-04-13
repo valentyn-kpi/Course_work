@@ -1,3 +1,4 @@
+//algorithms\shell_1_sorting.h
 //
 // Created by Valentyn Valentiev on 2/18/2023.
 //

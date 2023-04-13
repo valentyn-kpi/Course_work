@@ -1,3 +1,4 @@
+//algorithms\memory_access_test.c
 //
 // Created by Valentyn Valentiev on 4/5/2023.
 //
@@ -5,14 +6,14 @@
 /*
  * Модуль виміру часу читання/запису/обміну елементів 3Д масиву та вектору.
  */
+
 #include "memory_access_test.h"
 #include "common_array.h"
 
 #pragma GCC optimize ("O0")
 
-
-void abc(__attribute__((unused)) int a) {
-    //do nothing
+int abc(int a) {
+    return a;
 }
 
 /**

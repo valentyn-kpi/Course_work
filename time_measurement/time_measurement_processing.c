@@ -1,3 +1,4 @@
+//time_measurement/time_measurement_processing.c
 //
 // Created by Valentyn Valentiev on 2/14/2023.
 //
@@ -94,7 +95,7 @@ static void print_values() {
 }
 
 /**
-* Функія сортування масиву методом вибору.
+* Функція сортування масиву методом вибору.
 */
 static void sort_values() {
     for (int i = 0; i < next_index - 1; i++) {
