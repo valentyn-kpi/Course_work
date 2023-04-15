@@ -76,5 +76,3 @@ clock_t SortingSelect_6_vector() {
 
     return end_measure - start_measure;
 }
-
-#pragma GCC optimize ("O2")

@@ -205,5 +205,3 @@ clock_t VectorTime_s() {
 
     return withloop - loop;
 }
-
-#pragma GCC optimize ("O2")

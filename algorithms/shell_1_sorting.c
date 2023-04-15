@@ -108,5 +108,3 @@ clock_t SortingShell_1_vector() {
     free(Stages);
     return end_measure - start_measure;
 }
-
-#pragma GCC optimize ("O2")

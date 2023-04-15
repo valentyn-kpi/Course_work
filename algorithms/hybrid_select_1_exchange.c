@@ -73,5 +73,3 @@ clock_t SortingHybrid_1_exchange_vector() {
 
     return end_measure - start_measure;
 }
-
-#pragma GCC optimize ("O2")
