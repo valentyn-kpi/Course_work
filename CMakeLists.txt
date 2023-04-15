@@ -11,6 +11,5 @@ add_executable(Coursework main.c time_measurement/time_measurement_processing.c
         time_measurement/measure_options.c time_measurement/measure_options.h algorithms/select_6_sorting.c
         algorithms/select_6_sorting.h algorithms/common_array.c algorithms/common_array.h algorithms/hybrid_select_1_exchange.c
         algorithms/hybrid_select_1_exchange.h algorithms/shell_1_sorting.c algorithms/shell_1_sorting.h algorithms/memory_access_test.c algorithms/memory_access_test.h)
-#set_target_properties(Coursework  PROPERTIES COMPILE_FLAGS "-save-temps")
 #math lib for linux
 target_link_libraries(Coursework m)
