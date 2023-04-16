@@ -3,7 +3,8 @@ project(Coursework C)
 
 set(CMAKE_C_STANDARD 11)
 
-
+SET(CMAKE_CXX_FLAGS "-O0")
+SET(CMAKE_C_FLAGS "-O0")
 
 add_executable(Coursework main.c time_measurement/time_measurement_processing.c
         time_measurement/time_measurement_processing.h settings.h user_interface/menu.c
