@@ -85,12 +85,12 @@ clock_t Array3DTime_w() {
  * @return час обміну.
  */
 clock_t Array3DTime_s() {
-    clock_t start_measure, end_measure, withloop, loop;
+    clock_t start_measure, end_measure, withloop;
     int ***array_3d = GetPointer_3DArray();
 
     int N = GetDimension('N');
 
-    int i, a, b=5;
+    int i, a, b = 5;
 
     start_measure = clock();
     //swap
@@ -173,28 +173,21 @@ clock_t VectorTime_w() {
  * @return час обміну.
  */
 clock_t VectorTime_s() {
-    clock_t start_measure, end_measure, withloop, loop;
+    clock_t start_measure, end_measure, withloop;
     int *array_vector = GetPointer_Vector();
     int N = GetDimension('N');
 
-    int i, a;
+    int i, a, b = 5;
 
     start_measure = clock();
     //swap
-    for (i = 0; i < N / 2; ++i) {
+    for (i = 0; i < N; ++i) {
         a = array_vector[i];
-        array_vector[i] = array_vector[N - i];
-        array_vector[N - i] = a;
+        array_vector[i] = array_vector[b];
+        array_vector[b] = a;
     }
     end_measure = clock();
     withloop = end_measure - start_measure;
 
-    start_measure = clock();
-    for (i = 0; i < N / 2; ++i) {
-    }
-    end_measure = clock();
-
-    loop = end_measure - start_measure;
-
-    return withloop - loop;
+    return withloop;
 }
