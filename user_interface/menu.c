@@ -127,6 +127,8 @@ void ProcessInput() {
             break;
         } else {
             printf("Error: invalid option selected!\n");
+            fflush(stdout);
+            fflush(stdin);
         }
     }
 }
